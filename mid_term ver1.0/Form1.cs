@@ -15,7 +15,8 @@ namespace mid_term_ver1._0
 {
     public partial class Form1 : Form
     {
-        string strMyDBConnectionString = "";
+        SqlConnectionStringBuilder scsb;
+        string strDBConnectionString = "";
         public Form1()
         {
             InitializeComponent();
@@ -27,29 +28,43 @@ namespace mid_term_ver1._0
             create_checkNum();
 
             //連接momoDB
-            SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+            scsb = new SqlConnectionStringBuilder();
             scsb.DataSource = @".";
-            scsb.InitialCatalog = "mymomo";
+            scsb.InitialCatalog = "mymomo";//database名稱
             scsb.IntegratedSecurity = true;
-            strMyDBConnectionString = scsb.ToString();
+            strDBConnectionString = scsb.ToString();
         }
 
-        void connectSQL()
+        void LogInChk()
         {
-            SqlConnection con = new SqlConnection(strMyDBConnectionString);
+            SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "select * from momo_member where member_account= @account;";
+            string strSQL = "select * from momo_member_account where member_account= @account ";
             SqlCommand cmd = new SqlCommand(strSQL, con);
             cmd.Parameters.AddWithValue("@account", txtaccount.Text);
             SqlDataReader reader = cmd.ExecuteReader();
 
             if(reader.Read())
             {
-                
+                reader.Close();
+                string strSQL2 = "select * from momo_member_account where member_account= @account2 and member_password= @password2 ";
+                SqlCommand cmd2 = new SqlCommand(strSQL2, con);
+                cmd2.Parameters.AddWithValue("@account2", txtaccount.Text);
+                cmd2.Parameters.AddWithValue("@password2", txtpassword.Text);
+                SqlDataReader reader2 = cmd2.ExecuteReader();
+
+                if( reader2.HasRows)
+                {
+                    MessageBox.Show("成功登入");
+                }
+                else
+                {
+                    MessageBox.Show("密碼有誤");
+                }
             }
             else
             {
-                MessageBox.Show("查無此人");
+                MessageBox.Show("無此帳號");
             }
 
             reader.Close();
@@ -62,7 +77,7 @@ namespace mid_term_ver1._0
 
         private void btn_changeChkNum_Click(object sender, EventArgs e)
         {
-            //create_checkNum();
+            create_checkNum();
         }
 
         private void btn_signUp_Click(object sender, EventArgs e)
@@ -74,7 +89,19 @@ namespace mid_term_ver1._0
 
         private void btn_signIn_Click(object sender, EventArgs e)
         {
+            bool txtaccountchk = (txtaccount.Text != "");
+            bool txtpasswordchk = (txtpassword.Text != "");
             //Ismatch_checkNum();
+            if(txtaccountchk && txtpasswordchk)
+            {
+                LogInChk();
+            }
+            else
+            {
+                MessageBox.Show("請輸入帳密");
+
+            }
+            
         }
 
         void Ismatch_checkNum()
