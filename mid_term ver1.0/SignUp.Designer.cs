@@ -75,6 +75,7 @@
             this.btn_signup.TabIndex = 6;
             this.btn_signup.Text = "註冊";
             this.btn_signup.UseVisualStyleBackColor = true;
+            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
             // 
             // label1
             // 
@@ -93,6 +94,7 @@
             this.txt_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txt_password.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txt_password.Location = new System.Drawing.Point(140, 311);
+            this.txt_password.MaxLength = 20;
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(300, 50);
             this.txt_password.TabIndex = 10;
