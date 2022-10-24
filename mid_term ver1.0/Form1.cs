@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 namespace mid_term_ver1._0
 {
@@ -39,7 +40,7 @@ namespace mid_term_ver1._0
         {
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "select * from momo_member_account where member_account= @account ";
+            string strSQL = "select * from momo_member_account where member_account= @account and member_available == 1";
             SqlCommand cmd = new SqlCommand(strSQL, con);
             cmd.Parameters.AddWithValue("@account", txtaccount.Text);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -60,19 +61,25 @@ namespace mid_term_ver1._0
                 else
                 {
                     MessageBox.Show("密碼有誤");
+                    clear();
                 }
+                reader2.Close();
             }
             else
             {
                 MessageBox.Show("無此帳號");
+                clear();
             }
-
             reader.Close();
             con.Close();
         }
         void clear()
-        {
+        {//清除txt、換驗證碼
 
+            txtaccount.Text = "";
+            txtpassword.Text = "";
+            txtchkNum.Text = "";
+            create_checkNum();
         }
 
         private void btn_changeChkNum_Click(object sender, EventArgs e)
@@ -82,7 +89,10 @@ namespace mid_term_ver1._0
 
         private void btn_signUp_Click(object sender, EventArgs e)
         {
-            // Ismatch_checkNum();
+            List<string> ActNPsw = new List<string>();
+            ActNPsw.Add(txtaccount.Text);
+            ActNPsw.Add(txtpassword.Text);
+            GlobalVar.G_member_SignUp.Add(ActNPsw);
             SignUp SignUp = new SignUp();
             SignUp.ShowDialog();
         }
@@ -99,7 +109,6 @@ namespace mid_term_ver1._0
             else
             {
                 MessageBox.Show("請輸入帳密");
-
             }
             
         }
@@ -136,24 +145,5 @@ namespace mid_term_ver1._0
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

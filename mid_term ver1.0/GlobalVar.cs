@@ -8,7 +8,7 @@ namespace mid_term_ver1._0
 {
     internal class GlobalVar
     {
-        public List<List<string>> G_member_SignUp = new List<List<string>> ();
+        public static List<List<string>> G_member_SignUp = new List<List<string>> ();
 
     }
 }
