@@ -41,7 +41,7 @@ namespace mid_term_ver1._0
         {
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL2 = "select * from momo_member_account where member_account= @account and member_available = 1";
+            string strSQL2 = "select * from momo_member where member_account= @account and member_available = 1";
             SqlCommand cmd2 = new SqlCommand(strSQL2, con);
             cmd2.Parameters.AddWithValue("@account", txtaccount.Text);
             Console.WriteLine("2 act " + txtaccount.Text);
@@ -51,7 +51,7 @@ namespace mid_term_ver1._0
             if (reader2.HasRows)
             {
                 reader2.Close();
-                string strSQL3 = "select * from momo_member_account where member_account= @account2 and member_password=@password2 and member_available = 1";
+                string strSQL3 = "select * from momo_member where member_account= @account2 and member_password=@password2 and member_available = 1";
                 SqlCommand cmd3 = new SqlCommand(strSQL3, con);
                 cmd3.Parameters.AddWithValue("@account2", txtaccount.Text);
                 cmd3.Parameters.AddWithValue("@password2", txtpassword.Text);

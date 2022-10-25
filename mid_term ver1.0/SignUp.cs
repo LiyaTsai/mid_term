@@ -42,8 +42,7 @@ namespace mid_term_ver1._0
             strDBConnectionString = scsb.ToString();
 
         }
-
-        
+               
 
         private void btn_signup_Click(object sender, EventArgs e)
         {
@@ -54,10 +53,11 @@ namespace mid_term_ver1._0
                 con.Open();
                 
                 //先檢查帳號是否已存在
-                string strSQL2 = "select * from momo_member_account where member_account= @account and member_available = 1";
+                string strSQL2 = "select * from momo_member where member_account= @account and member_available = 1";
                 SqlCommand cmd2 = new SqlCommand(strSQL2, con);
                 cmd2.Parameters.AddWithValue("@account", txt_account.Text);
                 SqlDataReader reader2 = cmd2.ExecuteReader();
+                Console.WriteLine("檢查帳號是否已存在");
 
                 if (reader2.HasRows)
                 {//帳號已存在
@@ -66,7 +66,8 @@ namespace mid_term_ver1._0
                 }
                 else
                 {
-                    string strSQL = "insert into momo_member_account values(@NewAccount, @NewPassword, 1);insert into momo_member_info values(@NewAccount, @NewFirstName, @NewLastName, @Newphone, @NewBirthday, @NewEmail, @NewAddress, @NewMarriage ,0,1)";
+                    reader2.Close();
+                    string strSQL = "insert into momo_member values(@NewAccount, @NewPassword, @NewFirstName, @NewLastName, @Newphone, @NewBirthday, @NewEmail, @NewAddress, @NewMarriage ,0,1)";
                     SqlCommand cmd = new SqlCommand(strSQL, con);
                     cmd.Parameters.AddWithValue("@NewAccount", txt_account.Text);
                     cmd.Parameters.AddWithValue("@NewPassword", txt_password.Text);
@@ -86,11 +87,12 @@ namespace mid_term_ver1._0
                         marriage = 0;
                     }
                     cmd.Parameters.AddWithValue("@NewMarriage", marriage);
+                    Console.WriteLine("新會員創建成功");
 
-                    //int rows = cmd.ExecuteNonQuery();
-                    //con.Close();
-                    //MessageBox.Show("資料儲存成功, 影響" + rows + "筆資料");
-                    
+                    int rows = cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("資料儲存成功, 影響" + rows + "筆資料");
+
                 }
                 con.Close();
             }
