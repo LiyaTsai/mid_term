@@ -9,6 +9,6 @@ namespace mid_term_ver1._0
     internal class GlobalVar
     {
         public static List<List<string>> G_member_SignUp = new List<List<string>> ();
-
+        public static int G_user_permission = 1;//member = 1, clerk = 2 
     }
 }

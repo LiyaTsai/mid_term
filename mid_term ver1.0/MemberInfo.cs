@@ -39,7 +39,7 @@ namespace mid_term_ver1._0
         {
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "select member_ID, M_acc.member_account as 會員帳號, (member_lastName + ' ' + member_firstName) as 姓名, member_phone as 手機,　member_email as 信箱, member_point as 點數 from momo_member_info as M_info\r\njoin momo_member_account as M_acc\r\non M_info.member_account = M_acc.member_account"; 
+            string strSQL = "select member_ID, member_account as 會員帳號, (member_lastName + ' ' + member_firstName) as 姓名, member_phone as 手機,　member_email as 信箱, member_point as 點數 from momo_member"; 
             SqlCommand cmd = new SqlCommand(strSQL, con);
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -65,20 +65,22 @@ namespace mid_term_ver1._0
                 {
                     SqlConnection con = new SqlConnection(strDBConnectionString);
                     con.Open();
-                    string strSQL = "select * from momo_member_account where member_ID = @SearchID;";
+                    string strSQL = "select * from momo_member where member_ID = @SearchID;";
                     SqlCommand cmd = new SqlCommand(strSQL, con);
                     cmd.Parameters.AddWithValue("@SearchID", intSelID);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        lb_account.Text = reader["member_account"].ToString();
-                        lb_lastnName.Text = reader["member_lastName"].ToString();
-                        lb_firstName.Text = reader["member_firstName"].ToString();
-                        lb_phone.Text = reader["member_phone"].ToString();
-                        lb_birthday.Text = Convert.ToString(reader["member_birthday"]);
-                        lb_email.Text = reader["member_email"].ToString();
-                        lb_point.Text = reader["member_point"].ToString();
+                        txt_account.Text = reader["member_account"].ToString();
+                        txt_LastName.Text = reader["member_lastName"].ToString();
+                        txt_FirstName.Text = reader["member_firstName"].ToString();
+                        txt_phone.Text = reader["member_phone"].ToString();
+                        Console.WriteLine(Convert.ToDateTime(reader["member_birthday"]).ToString("yyyyMMdd"));
+                        dtp_birthday.Value = Convert.ToDateTime(reader["member_birthday"]); ;
+                        txt_email.Text = reader["member_email"].ToString();
+                        txt_point.Text = reader["member_point"].ToString();
+                        txt_address.Text = reader["member_address"].ToString();
                     }
                     else
                     {

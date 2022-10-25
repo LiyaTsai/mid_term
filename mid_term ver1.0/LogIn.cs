@@ -14,11 +14,11 @@ using System.Text.RegularExpressions;
 
 namespace mid_term_ver1._0
 {
-    public partial class Form1 : Form
+    public partial class LogIn : Form
     {
         SqlConnectionStringBuilder scsb;
         string strDBConnectionString = "";
-        public Form1()
+        public LogIn()
         {
             InitializeComponent();
         }
@@ -63,6 +63,7 @@ namespace mid_term_ver1._0
                 if (reader3.HasRows)
                 {
                     MessageBox.Show("成功登入");
+                    GlobalVar.G_user_permission = 1;
                 }
                 else
                 {
@@ -95,6 +96,7 @@ namespace mid_term_ver1._0
                 Console.WriteLine("clerk log in");
                 MemberInfo memberInfo = new MemberInfo();
                 memberInfo.Show();
+                GlobalVar.G_user_permission = 2;
                 a = 1;
             }
             else
