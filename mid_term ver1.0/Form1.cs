@@ -34,45 +34,78 @@ namespace mid_term_ver1._0
             scsb.InitialCatalog = "mymomo";//database名稱
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ToString();
+
         }
 
-        void LogInChk()
+        void MemberLogInChk()
         {
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "select * from momo_member_account where member_account= @account and member_available == 1";
-            SqlCommand cmd = new SqlCommand(strSQL, con);
-            cmd.Parameters.AddWithValue("@account", txtaccount.Text);
-            SqlDataReader reader = cmd.ExecuteReader();
+            string strSQL2 = "select * from momo_member_account where member_account= @account and member_available = 1";
+            SqlCommand cmd2 = new SqlCommand(strSQL2, con);
+            cmd2.Parameters.AddWithValue("@account", txtaccount.Text);
+            Console.WriteLine("2 act " + txtaccount.Text);
+            SqlDataReader reader2 = cmd2.ExecuteReader();
+            Console.WriteLine("進入member SQL連線2");
 
-            if(reader.Read())
+            if (reader2.HasRows)
             {
-                reader.Close();
-                string strSQL2 = "select * from momo_member_account where member_account= @account2 and member_password= @password2 ";
-                SqlCommand cmd2 = new SqlCommand(strSQL2, con);
-                cmd2.Parameters.AddWithValue("@account2", txtaccount.Text);
-                cmd2.Parameters.AddWithValue("@password2", txtpassword.Text);
-                SqlDataReader reader2 = cmd2.ExecuteReader();
+                reader2.Close();
+                string strSQL3 = "select * from momo_member_account where member_account= @account2 and member_password=@password2 and member_available = 1";
+                SqlCommand cmd3 = new SqlCommand(strSQL3, con);
+                cmd3.Parameters.AddWithValue("@account2", txtaccount.Text);
+                cmd3.Parameters.AddWithValue("@password2", txtpassword.Text);
+                Console.WriteLine("3 act " + txtaccount.Text);
+                Console.WriteLine("3 psw " + txtpassword.Text);
+                SqlDataReader reader3 = cmd3.ExecuteReader();
+                Console.WriteLine("進入member SQL連線3");
 
-                if( reader2.HasRows)
+                if (reader3.HasRows)
                 {
                     MessageBox.Show("成功登入");
                 }
                 else
                 {
-                    MessageBox.Show("密碼有誤");
+                    MessageBox.Show("Member密碼有誤");
                     clear();
                 }
-                reader2.Close();
+                reader3.Close();
             }
             else
             {
-                MessageBox.Show("無此帳號");
+                MessageBox.Show("無此Member帳號");
                 clear();
+            }
+            reader2.Close();
+            con.Close();
+        }
+
+        void ClerkLogInChk(out int a)
+        {
+            SqlConnection con = new SqlConnection(strDBConnectionString);
+            con.Open();
+            string strSQL = "select * from momo_clerk_account where Clerk_account= @account and Clerk_password= @password and Clerk_available=1";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            cmd.Parameters.AddWithValue("@account", txtaccount.Text);
+            cmd.Parameters.AddWithValue("@password", txtpassword.Text);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {//成功登入
+                Console.WriteLine("clerk log in");
+                MemberInfo memberInfo = new MemberInfo();
+                memberInfo.Show();
+                a = 1;
+            }
+            else
+            {
+                Console.WriteLine("not clerk");
+                a = 0;
             }
             reader.Close();
             con.Close();
         }
+
         void clear()
         {//清除txt、換驗證碼
 
@@ -100,17 +133,22 @@ namespace mid_term_ver1._0
         private void btn_signIn_Click(object sender, EventArgs e)
         {
             bool txtaccountchk = (txtaccount.Text != "");
-            bool txtpasswordchk = (txtpassword.Text != "");
+            bool txtpasswordchk = (txtpassword.Text != "") && (txtpassword.Text.Length>=8);
             //Ismatch_checkNum();
             if(txtaccountchk && txtpasswordchk)
             {
-                LogInChk();
+                ClerkLogInChk(out int a);
+                if (a == 0)
+                {
+                    Console.WriteLine("即將進入memberLohInChk"+a);
+                    MemberLogInChk();
+                }
+                
             }
             else
             {
-                MessageBox.Show("請輸入帳密");
-            }
-            
+                MessageBox.Show("帳密有誤");
+            }            
         }
 
         void Ismatch_checkNum()
@@ -145,5 +183,6 @@ namespace mid_term_ver1._0
             }
         }
 
+        
     }
 }

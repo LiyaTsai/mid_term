@@ -69,7 +69,7 @@
             // 
             this.btn_signup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_signup.BackgroundImage")));
             this.btn_signup.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_signup.Location = new System.Drawing.Point(708, 584);
+            this.btn_signup.Location = new System.Drawing.Point(769, 654);
             this.btn_signup.Name = "btn_signup";
             this.btn_signup.Size = new System.Drawing.Size(200, 50);
             this.btn_signup.TabIndex = 6;
@@ -292,7 +292,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.ClientSize = new System.Drawing.Size(1008, 707);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtp_birthday);
             this.Controls.Add(this.txt_phone);

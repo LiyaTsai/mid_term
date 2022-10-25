@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -13,6 +15,9 @@ namespace mid_term_ver1._0
 {
     public partial class SignUp : Form
     {
+
+        SqlConnectionStringBuilder scsb;
+        string strDBConnectionString = ""; 
         public SignUp()
         {
             InitializeComponent();
@@ -20,16 +25,84 @@ namespace mid_term_ver1._0
 
         private void SignUp_Load(object sender, EventArgs e)
         {
-            
+            foreach(List<string> signUp in GlobalVar.G_member_SignUp)
+            {
+                string account = (string)signUp[0];
+                string password = (string)signUp[1];
+
+                txt_account.Text = account;
+                txt_password.Text = password;
+            }
+
+            //連接momoDB
+            scsb = new SqlConnectionStringBuilder();
+            scsb.DataSource = @".";
+            scsb.InitialCatalog = "mymomo";//database名稱
+            scsb.IntegratedSecurity = true;
+            strDBConnectionString = scsb.ToString();
 
         }
 
-        void blankchk()
+        
+
+        private void btn_signup_Click(object sender, EventArgs e)
+        {
+           blankchk(out int a);
+           if(a==1)
+           {//存到資料庫
+                SqlConnection con = new SqlConnection(strDBConnectionString);
+                con.Open();
+                
+                //先檢查帳號是否已存在
+                string strSQL2 = "select * from momo_member_account where member_account= @account and member_available = 1";
+                SqlCommand cmd2 = new SqlCommand(strSQL2, con);
+                cmd2.Parameters.AddWithValue("@account", txt_account.Text);
+                SqlDataReader reader2 = cmd2.ExecuteReader();
+
+                if (reader2.HasRows)
+                {//帳號已存在
+                    MessageBox.Show("此帳號已存在");
+                    reader2.Close();
+                }
+                else
+                {
+                    string strSQL = "insert into momo_member_account values(@NewAccount, @NewPassword, 1);insert into momo_member_info values(@NewAccount, @NewFirstName, @NewLastName, @Newphone, @NewBirthday, @NewEmail, @NewAddress, @NewMarriage ,0,1)";
+                    SqlCommand cmd = new SqlCommand(strSQL, con);
+                    cmd.Parameters.AddWithValue("@NewAccount", txt_account.Text);
+                    cmd.Parameters.AddWithValue("@NewPassword", txt_password.Text);
+                    cmd.Parameters.AddWithValue("@NewFirstName", txt_FirstName.Text);
+                    cmd.Parameters.AddWithValue("@NewLastName", txt_LastName.Text);
+                    cmd.Parameters.AddWithValue("@Newphone", txt_phone.Text);
+                    cmd.Parameters.AddWithValue("@NewBirthday", dtp_birthday.Value);
+                    cmd.Parameters.AddWithValue("@NewEmail", txt_email.Text);
+                    cmd.Parameters.AddWithValue("@NewAddress", txt_address.Text);
+                    int marriage = 0; //要先賦值
+                    if (rbtn_marriaged.Checked)
+                    {
+                        marriage = 1;
+                    }
+                    else if (rbtn_single.Checked)
+                    {
+                        marriage = 0;
+                    }
+                    cmd.Parameters.AddWithValue("@NewMarriage", marriage);
+
+                    //int rows = cmd.ExecuteNonQuery();
+                    //con.Close();
+                    //MessageBox.Show("資料儲存成功, 影響" + rows + "筆資料");
+                    
+                }
+                con.Close();
+            }
+
+        }
+
+        void blankchk(out int a)
         {
             string blankmsg = "";
             DateTime age12 = DateTime.Now.AddYears(-12);
             bool accountchk = (txt_account.Text != "");
-            bool passwordchk = Regex.IsMatch(txt_password.Text,@"\w{8}");
+            bool passwordchk = Regex.IsMatch(txt_password.Text, @"\w{8}");
             bool namechk = (txt_FirstName.Text != "") && (txt_LastName.Text != "");
             bool phonechk = Regex.IsMatch(txt_phone.Text, @"^09[0-9]{8}$");
             bool birthdaychk = dtp_birthday.Value <= age12;
@@ -101,12 +174,15 @@ namespace mid_term_ver1._0
             {
                 blankmsg += "請選擇婚姻狀態\n";
             }
-            MessageBox.Show(blankmsg);
-        }
-
-        private void btn_signup_Click(object sender, EventArgs e)
-        {
-            blankchk();
+            if(blankmsg =="")
+            {
+                a = 1;
+            }
+            else
+            {
+                a = 0;
+                MessageBox.Show(blankmsg);
+            }
         }
     }
 }

@@ -51,7 +51,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(306, 347);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -133,7 +132,7 @@
             // 
             this.txtaccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txtaccount.Font = new System.Drawing.Font("微軟正黑體", 24F);
-            this.txtaccount.Location = new System.Drawing.Point(414, 403);
+            this.txtaccount.Location = new System.Drawing.Point(426, 404);
             this.txtaccount.Name = "txtaccount";
             this.txtaccount.Size = new System.Drawing.Size(300, 50);
             this.txtaccount.TabIndex = 6;
@@ -142,8 +141,9 @@
             // 
             this.txtpassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txtpassword.Font = new System.Drawing.Font("微軟正黑體", 24F);
-            this.txtpassword.Location = new System.Drawing.Point(414, 472);
+            this.txtpassword.Location = new System.Drawing.Point(426, 472);
             this.txtpassword.Name = "txtpassword";
+            this.txtpassword.PasswordChar = '●';
             this.txtpassword.Size = new System.Drawing.Size(300, 50);
             this.txtpassword.TabIndex = 6;
             // 
