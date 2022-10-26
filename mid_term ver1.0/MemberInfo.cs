@@ -39,7 +39,7 @@ namespace mid_term_ver1._0
         {
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "select member_ID, member_account as 會員帳號, (member_lastName + ' ' + member_firstName) as 姓名, member_phone as 手機,　member_email as 信箱, member_point as 點數 from momo_member"; 
+            string strSQL = "select member_ID, member_account as 會員帳號, (member_lastName + ' ' + member_firstName) as 姓名, member_phone as 手機,　member_email as 信箱, member_point as 點數 from momo_member where member_available = 1"; 
             SqlCommand cmd = new SqlCommand(strSQL, con);
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -72,6 +72,7 @@ namespace mid_term_ver1._0
 
                     if (reader.Read())
                     {
+                        txt_ID.Text = reader["member_ID"].ToString();
                         txt_account.Text = reader["member_account"].ToString();
                         txt_LastName.Text = reader["member_lastName"].ToString();
                         txt_FirstName.Text = reader["member_firstName"].ToString();
@@ -92,6 +93,17 @@ namespace mid_term_ver1._0
                     con.Close();
                 }
             }
+        }
+
+        private void btn_signup_Click(object sender, EventArgs e)
+        {
+            SignUp signUp = new SignUp();
+            signUp.ShowDialog();
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
