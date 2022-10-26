@@ -6,19 +6,20 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace mid_term_ver1._0
 {
-    public partial class puffList : Form
+    public partial class Menu : Form
     {
         string strMyDBConnectionString = "";
         List<string> listPname = new List<string>();
         List<int> listPrice = new List<int>();
         List<int> listId = new List<int>();
 
-        public puffList()
+        public Menu()
         {
             InitializeComponent();
         }
@@ -32,6 +33,8 @@ namespace mid_term_ver1._0
             strMyDBConnectionString = scsb.ToString();
 
             mymomoDB();
+
+
         }
 
         void mymomoDB()

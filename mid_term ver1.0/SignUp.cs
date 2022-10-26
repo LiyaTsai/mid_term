@@ -108,7 +108,7 @@ namespace mid_term_ver1._0
             bool namechk = (txt_name.Text != "") ;
             bool phonechk = Regex.IsMatch(txt_phone.Text, @"^09[0-9]{8}$");
             bool birthdaychk = dtp_birthday.Value <= age12;
-            bool emailchk = Regex.IsMatch(txt_email.Text, @"^([\w\.\-]+)@([\w\.\-]+)\.[0-9a-zA-Z]{2,}$");
+            bool emailchk = Regex.IsMatch(txt_email.Text, @"^([\w\.\-]+)@([\w\.\-]+)\.[0-9a-zA-Z]{2,5}$");
             bool addresschk = Regex.IsMatch(txt_address.Text, @"^\w+[縣市]\w+[路]*[0-9]{1,}[號]");
             bool marriagechk = (rbtn_single.Checked == true) || (rbtn_marriaged.Checked == true);
 

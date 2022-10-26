@@ -16,7 +16,7 @@ namespace mid_term_ver1._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new puffList());
+            Application.Run(new BuyPuffPage());
         }
     }
 }

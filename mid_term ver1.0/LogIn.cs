@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 namespace mid_term_ver1._0
 {
@@ -44,9 +45,7 @@ namespace mid_term_ver1._0
             string strSQL2 = "select * from momo_member where member_account= @account and member_available = 1";
             SqlCommand cmd2 = new SqlCommand(strSQL2, con);
             cmd2.Parameters.AddWithValue("@account", txtaccount.Text);
-            Console.WriteLine("2 act " + txtaccount.Text);
             SqlDataReader reader2 = cmd2.ExecuteReader();
-            Console.WriteLine("進入member SQL連線2");
 
             if (reader2.HasRows)
             {
@@ -55,15 +54,15 @@ namespace mid_term_ver1._0
                 SqlCommand cmd3 = new SqlCommand(strSQL3, con);
                 cmd3.Parameters.AddWithValue("@account2", txtaccount.Text);
                 cmd3.Parameters.AddWithValue("@password2", txtpassword.Text);
-                Console.WriteLine("3 act " + txtaccount.Text);
-                Console.WriteLine("3 psw " + txtpassword.Text);
                 SqlDataReader reader3 = cmd3.ExecuteReader();
-                Console.WriteLine("進入member SQL連線3");
 
                 if (reader3.HasRows)
                 {
                     MessageBox.Show("成功登入");
                     GlobalVar.G_user_permission = 1;
+                    GlobalVar.G_user_info.Add("ID", reader3["member_ID"].ToString());
+                    GlobalVar.G_user_info.Add("phone", reader3["member_phone"].ToString());
+
                 }
                 else
                 {
