@@ -14,6 +14,7 @@ namespace mid_term_ver1._0
         public static Hashtable G_user_info = new Hashtable();//登入者身分
         //public static int G_puffprice;
         public static ArrayList G_puff = new ArrayList ();
-        
+        public static ArrayList G_sweet = new ArrayList();
+
     }
 }

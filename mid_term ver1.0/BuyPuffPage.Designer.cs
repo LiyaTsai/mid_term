@@ -43,6 +43,8 @@
             this.ckb_earlgrey = new System.Windows.Forms.CheckBox();
             this.ckb_strawberrycheese = new System.Windows.Forms.CheckBox();
             this.lbox_cartPuff = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -214,12 +216,41 @@
             this.lbox_cartPuff.Size = new System.Drawing.Size(608, 274);
             this.lbox_cartPuff.TabIndex = 20;
             // 
+            // button2
+            // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.button2.Location = new System.Drawing.Point(0, 225);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 400);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "泡芙";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.button1.Location = new System.Drawing.Point(0, 625);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 400);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "甜點";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BuyPuffPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.ClientSize = new System.Drawing.Size(1512, 1094);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbox_cartPuff);
             this.Controls.Add(this.lb_puffamount);
             this.Controls.Add(this.btn_addpuff);
@@ -253,5 +284,7 @@
         private System.Windows.Forms.CheckBox ckb_earlgrey;
         private System.Windows.Forms.CheckBox ckb_strawberrycheese;
         private System.Windows.Forms.ListBox lbox_cartPuff;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

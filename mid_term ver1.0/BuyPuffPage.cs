@@ -84,5 +84,15 @@ namespace mid_term_ver1._0
             ckb_earlgrey.Checked = false;
             ckb_strawberrycheese.Checked = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //檢查未買
+
+            //轉跳到甜點
+            BuySweetPage buySweetPage = new BuySweetPage();
+            buySweetPage.Show();
+            this.Close();
+        }
     }
 }

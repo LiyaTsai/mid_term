@@ -71,6 +71,12 @@
     <Compile Include="MemberInfo.Designer.cs">
       <DependentUpon>MemberInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="memberMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="memberMain.Designer.cs">
+      <DependentUpon>memberMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MemberInfo.resx">
       <DependentUpon>MemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="memberMain.resx">
+      <DependentUpon>memberMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

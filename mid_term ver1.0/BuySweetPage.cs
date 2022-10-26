@@ -95,7 +95,7 @@ namespace mid_term_ver1._0
                 buySweets.Add(myproduct);
                 buySweets.Add(myprice);
                 buySweets.Add(myamount);
-                //codes.BuySweets.Add(buySweets);
+                GlobalVar.G_sweet.Add(buySweets);
             }
             else
             {
@@ -103,7 +103,33 @@ namespace mid_term_ver1._0
             }
 
             //清空選單
-            //sweet_choice_clean();
+            sweet_choice_clean();
+
+            lbox_cartSweet.Items.Clear();
+            foreach (ArrayList buysweets in GlobalVar.G_sweet)
+            {
+                string product = (string)buysweets[0];
+                int price = (int)buysweets[1];
+                int amount = (int)buysweets[2];
+                string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
+                lbox_cartSweet.Items.Add(selected);
+            }
+        }
+
+        void sweet_choice_clean()
+        {
+            num_productamount.Value = 0;
+            lbox_product.SelectedIndex = -1;
+            lb_subtotal.Text = "";
+            lb_unitprice.Text = "";
+            num_productamount.Value = 1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BuyPuffPage buyPuffPage = new BuyPuffPage();
+            buyPuffPage.Show();
+            this.Close();
         }
     }
 }
