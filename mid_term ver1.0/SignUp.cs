@@ -67,12 +67,11 @@ namespace mid_term_ver1._0
                 else
                 {
                     reader2.Close();
-                    string strSQL = "insert momo_member(member_account,member_password,member_firstName,member_lastName,member_phone,member_birthday,member_email,member_address,member_marriage) values (@NewAccount, @NewPassword, @NewFirstName, @NewLastName, @Newphone, @NewBirthday, @NewEmail, @NewAddress, @NewMarriage)";
+                    string strSQL = "insert momo_member(member_account,member_password,member_name,member_phone,member_birthday,member_email,member_address,member_marriage) values (@NewAccount, @NewPassword, @NewName, @Newphone, @NewBirthday, @NewEmail, @NewAddress, @NewMarriage)";
                     SqlCommand cmd = new SqlCommand(strSQL, con);
                     cmd.Parameters.AddWithValue("@NewAccount", txt_account.Text);
                     cmd.Parameters.AddWithValue("@NewPassword", txt_password.Text);
-                    cmd.Parameters.AddWithValue("@NewFirstName", txt_FirstName.Text);
-                    cmd.Parameters.AddWithValue("@NewLastName", txt_LastName.Text);
+                    cmd.Parameters.AddWithValue("@NewName", txt_name.Text);
                     cmd.Parameters.AddWithValue("@Newphone", txt_phone.Text);
                     cmd.Parameters.AddWithValue("@NewBirthday", dtp_birthday.Value);
                     cmd.Parameters.AddWithValue("@NewEmail", txt_email.Text);
@@ -106,7 +105,7 @@ namespace mid_term_ver1._0
             DateTime age12 = DateTime.Now.AddYears(-12);
             bool accountchk = (txt_account.Text != "");
             bool passwordchk = Regex.IsMatch(txt_password.Text, @"\w{8}");
-            bool namechk = (txt_FirstName.Text != "") && (txt_LastName.Text != "");
+            bool namechk = (txt_name.Text != "") ;
             bool phonechk = Regex.IsMatch(txt_phone.Text, @"^09[0-9]{8}$");
             bool birthdaychk = dtp_birthday.Value <= age12;
             bool emailchk = Regex.IsMatch(txt_email.Text, @"^([\w\.\-]+)@([\w\.\-]+)\.[0-9a-zA-Z]{2,}$");
@@ -135,7 +134,7 @@ namespace mid_term_ver1._0
             }
             else
             {
-                blankmsg += "請輸入姓氏及名字\n";
+                blankmsg += "請輸入姓字\n";
             }
             if (phonechk)
             {

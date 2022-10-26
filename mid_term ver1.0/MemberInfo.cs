@@ -39,7 +39,7 @@ namespace mid_term_ver1._0
         {
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "select member_ID, member_account as 會員帳號, (member_lastName + ' ' + member_firstName) as 姓名, member_phone as 手機,　member_email as 信箱, member_point as 點數 from momo_member where member_available = 1"; 
+            string strSQL = "select member_ID, member_account as 會員帳號, member_name as 姓名, member_phone as 手機,　member_email as 信箱, member_point as 點數 from momo_member where member_available = 1"; 
             SqlCommand cmd = new SqlCommand(strSQL, con);
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -73,9 +73,7 @@ namespace mid_term_ver1._0
                     if (reader.Read())
                     {
                         lb_ID.Text = reader["member_ID"].ToString();
-                        txt_account.Text = reader["member_account"].ToString();
-                        txt_LastName.Text = reader["member_lastName"].ToString();
-                        txt_FirstName.Text = reader["member_firstName"].ToString();
+                        txt_name.Text = reader["member_name"].ToString();
                         txt_phone.Text = reader["member_phone"].ToString();
                         Console.WriteLine(Convert.ToDateTime(reader["member_birthday"]).ToString("yyyyMMdd"));
                         dtp_birthday.Value = Convert.ToDateTime(reader["member_birthday"]); ;
@@ -88,7 +86,6 @@ namespace mid_term_ver1._0
                         MessageBox.Show("查無此人");
                         //清空欄位();
                     }
-
                     reader.Close();
                     con.Close();
                 }
@@ -113,9 +110,7 @@ namespace mid_term_ver1._0
         private void btn_clear_Click(object sender, EventArgs e)
         {
             lb_ID.Text = "";
-            txt_account.Text = "";
-            txt_LastName.Text = "";
-            txt_FirstName.Text = "";
+            txt_name.Text = "";
             txt_phone.Text = "";
             dtp_birthday.Value = DateTime.Now;
             txt_email.Text = "";

@@ -59,6 +59,12 @@
     <Compile Include="MemberInfo.Designer.cs">
       <DependentUpon>MemberInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="puffList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="puffList.Designer.cs">
+      <DependentUpon>puffList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUp.cs">
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MemberInfo.resx">
       <DependentUpon>MemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="puffList.resx">
+      <DependentUpon>puffList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

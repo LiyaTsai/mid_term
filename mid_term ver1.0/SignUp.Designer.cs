@@ -37,7 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt_LastName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -45,10 +44,9 @@
             this.txt_address = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.dtp_birthday = new System.Windows.Forms.DateTimePicker();
-            this.txt_FirstName = new System.Windows.Forms.TextBox();
+            this.txt_name = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_phone = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbtn_marriaged = new System.Windows.Forms.RadioButton();
             this.rbtn_single = new System.Windows.Forms.RadioButton();
@@ -132,20 +130,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(37, 443);
+            this.label6.Location = new System.Drawing.Point(37, 388);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 45);
             this.label6.TabIndex = 8;
-            this.label6.Text = "名字";
-            // 
-            // txt_LastName
-            // 
-            this.txt_LastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
-            this.txt_LastName.Font = new System.Drawing.Font("微軟正黑體", 24F);
-            this.txt_LastName.Location = new System.Drawing.Point(140, 386);
-            this.txt_LastName.Name = "txt_LastName";
-            this.txt_LastName.Size = new System.Drawing.Size(300, 50);
-            this.txt_LastName.TabIndex = 11;
+            this.label6.Text = "姓名";
             // 
             // label4
             // 
@@ -214,20 +203,20 @@
             this.dtp_birthday.Size = new System.Drawing.Size(301, 50);
             this.dtp_birthday.TabIndex = 12;
             // 
-            // txt_FirstName
+            // txt_name
             // 
-            this.txt_FirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
-            this.txt_FirstName.Font = new System.Drawing.Font("微軟正黑體", 24F);
-            this.txt_FirstName.Location = new System.Drawing.Point(140, 442);
-            this.txt_FirstName.Name = "txt_FirstName";
-            this.txt_FirstName.Size = new System.Drawing.Size(300, 50);
-            this.txt_FirstName.TabIndex = 11;
+            this.txt_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
+            this.txt_name.Font = new System.Drawing.Font("微軟正黑體", 24F);
+            this.txt_name.Location = new System.Drawing.Point(140, 387);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(300, 50);
+            this.txt_name.TabIndex = 11;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(37, 520);
+            this.label10.Location = new System.Drawing.Point(37, 466);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 45);
             this.label10.TabIndex = 9;
@@ -237,21 +226,11 @@
             // 
             this.txt_phone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txt_phone.Font = new System.Drawing.Font("微軟正黑體", 24F);
-            this.txt_phone.Location = new System.Drawing.Point(140, 519);
+            this.txt_phone.Location = new System.Drawing.Point(140, 465);
             this.txt_phone.MaxLength = 10;
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(300, 50);
             this.txt_phone.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(37, 387);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 45);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "姓氏";
             // 
             // groupBox1
             // 
@@ -299,15 +278,13 @@
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_address);
-            this.Controls.Add(this.txt_FirstName);
-            this.Controls.Add(this.txt_LastName);
+            this.Controls.Add(this.txt_name);
             this.Controls.Add(this.txt_account);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -335,7 +312,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt_LastName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
@@ -343,10 +319,9 @@
         private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.DateTimePicker dtp_birthday;
-        private System.Windows.Forms.TextBox txt_FirstName;
+        private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_phone;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbtn_marriaged;
         private System.Windows.Forms.RadioButton rbtn_single;
