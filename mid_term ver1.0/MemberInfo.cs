@@ -72,7 +72,7 @@ namespace mid_term_ver1._0
 
                     if (reader.Read())
                     {
-                        txt_ID.Text = reader["member_ID"].ToString();
+                        lb_ID.Text = reader["member_ID"].ToString();
                         txt_account.Text = reader["member_account"].ToString();
                         txt_LastName.Text = reader["member_lastName"].ToString();
                         txt_FirstName.Text = reader["member_firstName"].ToString();
@@ -103,7 +103,48 @@ namespace mid_term_ver1._0
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection(strDBConnectionString);
+            con.Open();
+            string strSQL = "update momo_member set member_available = 0; ";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            con.Close();
+        }
 
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            lb_ID.Text = "";
+            txt_account.Text = "";
+            txt_LastName.Text = "";
+            txt_FirstName.Text = "";
+            txt_phone.Text = "";
+            dtp_birthday.Value = DateTime.Now;
+            txt_email.Text = "";
+            txt_point.Text = "";
+            txt_address.Text = "";
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            allMemberList();
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_phoneSearch_Click(object sender, EventArgs e)
+        {
+            if(txt_phone.Text != "")
+            {
+                SqlConnection con = new SqlConnection(strDBConnectionString);
+                con.Open();
+                string strSQL = "select * from momo_member where member_phone =  "+txt_phone +";";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                int ResultID = Convert.ToInt32( reader["member_id"]);
+                lb_ID.Text = ResultID.ToString();
+            }
         }
     }
 }

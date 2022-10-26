@@ -67,7 +67,7 @@ namespace mid_term_ver1._0
                 else
                 {
                     reader2.Close();
-                    string strSQL = "insert into momo_member values(@NewAccount, @NewPassword, @NewFirstName, @NewLastName, @Newphone, @NewBirthday, @NewEmail, @NewAddress, @NewMarriage ,0,1)";
+                    string strSQL = "insert momo_member(member_account,member_password,member_firstName,member_lastName,member_phone,member_birthday,member_email,member_address,member_marriage) values (@NewAccount, @NewPassword, @NewFirstName, @NewLastName, @Newphone, @NewBirthday, @NewEmail, @NewAddress, @NewMarriage)";
                     SqlCommand cmd = new SqlCommand(strSQL, con);
                     cmd.Parameters.AddWithValue("@NewAccount", txt_account.Text);
                     cmd.Parameters.AddWithValue("@NewPassword", txt_password.Text);
@@ -90,8 +90,9 @@ namespace mid_term_ver1._0
                     Console.WriteLine("新會員創建成功");
 
                     int rows = cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("資料儲存成功, 影響" + rows + "筆資料");
+                    MessageBox.Show("資料儲存成功, 影響" + rows + "筆資料", "註冊成功");
+
+                    //MessageBox.Show("註冊成功，請登入會員","註冊成功");
 
                 }
                 con.Close();

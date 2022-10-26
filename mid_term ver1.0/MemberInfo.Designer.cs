@@ -54,7 +54,10 @@
             this.btn_delete = new System.Windows.Forms.Button();
             this.lb_count = new System.Windows.Forms.Label();
             this.lable134 = new System.Windows.Forms.Label();
-            this.txt_ID = new System.Windows.Forms.TextBox();
+            this.btn_clear = new System.Windows.Forms.Button();
+            this.lb_ID = new System.Windows.Forms.Label();
+            this.btn_reload = new System.Windows.Forms.Button();
+            this.btn_phoneSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_allMemberList)).BeginInit();
             this.SuspendLayout();
@@ -159,7 +162,7 @@
             this.dgv_allMemberList.Location = new System.Drawing.Point(441, 107);
             this.dgv_allMemberList.Name = "dgv_allMemberList";
             this.dgv_allMemberList.RowTemplate.Height = 24;
-            this.dgv_allMemberList.Size = new System.Drawing.Size(564, 305);
+            this.dgv_allMemberList.Size = new System.Drawing.Size(564, 294);
             this.dgv_allMemberList.TabIndex = 26;
             this.dgv_allMemberList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_allMemberList_CellClick);
             // 
@@ -264,8 +267,9 @@
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(200, 50);
             this.btn_search.TabIndex = 15;
-            this.btn_search.Text = "查詢會員";
+            this.btn_search.Text = "資料查詢";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // btn_save
             // 
@@ -277,6 +281,7 @@
             this.btn_save.TabIndex = 15;
             this.btn_save.Text = "儲存";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_delete
             // 
@@ -310,14 +315,50 @@
             this.lable134.TabIndex = 23;
             this.lable134.Text = "編號";
             // 
-            // txt_ID
+            // btn_clear
             // 
-            this.txt_ID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
-            this.txt_ID.Font = new System.Drawing.Font("微軟正黑體", 24F);
-            this.txt_ID.Location = new System.Drawing.Point(121, 169);
-            this.txt_ID.Name = "txt_ID";
-            this.txt_ID.Size = new System.Drawing.Size(300, 50);
-            this.txt_ID.TabIndex = 31;
+            this.btn_clear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_clear.BackgroundImage")));
+            this.btn_clear.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_clear.Location = new System.Drawing.Point(796, 555);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(200, 50);
+            this.btn_clear.TabIndex = 15;
+            this.btn_clear.Text = "清空欄位";
+            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
+            // 
+            // lb_ID
+            // 
+            this.lb_ID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
+            this.lb_ID.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ID.Location = new System.Drawing.Point(121, 170);
+            this.lb_ID.Name = "lb_ID";
+            this.lb_ID.Size = new System.Drawing.Size(300, 45);
+            this.lb_ID.TabIndex = 17;
+            // 
+            // btn_reload
+            // 
+            this.btn_reload.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_reload.BackgroundImage")));
+            this.btn_reload.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_reload.Location = new System.Drawing.Point(590, 555);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Size = new System.Drawing.Size(200, 50);
+            this.btn_reload.TabIndex = 15;
+            this.btn_reload.Text = "重新載入";
+            this.btn_reload.UseVisualStyleBackColor = true;
+            this.btn_reload.Click += new System.EventHandler(this.btn_clear_Click);
+            // 
+            // btn_phoneSearch
+            // 
+            this.btn_phoneSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_phoneSearch.BackgroundImage")));
+            this.btn_phoneSearch.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_phoneSearch.Location = new System.Drawing.Point(441, 418);
+            this.btn_phoneSearch.Name = "btn_phoneSearch";
+            this.btn_phoneSearch.Size = new System.Drawing.Size(200, 50);
+            this.btn_phoneSearch.TabIndex = 15;
+            this.btn_phoneSearch.Text = "手機查詢";
+            this.btn_phoneSearch.UseVisualStyleBackColor = true;
+            this.btn_phoneSearch.Click += new System.EventHandler(this.btn_phoneSearch_Click);
             // 
             // MemberInfo
             // 
@@ -326,7 +367,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.dtp_birthday);
-            this.Controls.Add(this.txt_ID);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_point);
             this.Controls.Add(this.txt_address);
@@ -343,11 +383,15 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.lb_ID);
             this.Controls.Add(this.lb_count);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.btn_phoneSearch);
+            this.Controls.Add(this.btn_reload);
+            this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.btn_signup);
             this.Controls.Add(this.pictureBox1);
@@ -387,6 +431,9 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Label lb_count;
         private System.Windows.Forms.Label lable134;
-        private System.Windows.Forms.TextBox txt_ID;
+        private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.Label lb_ID;
+        private System.Windows.Forms.Button btn_reload;
+        private System.Windows.Forms.Button btn_phoneSearch;
     }
 }
