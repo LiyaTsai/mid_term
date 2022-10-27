@@ -85,14 +85,38 @@ namespace mid_term_ver1._0
             ckb_strawberrycheese.Checked = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void sweetPage_Click(object sender, EventArgs e)
         {
             //檢查未買
+            while (true)
+            {
+                bool PuffToCart = ((ckb_chocolate.Checked == false) && (ckb_earlgrey.Checked == false) && (ckb_strawberrycheese.Checked == false) && (ckb_vanilla.Checked == false));
 
-            //轉跳到甜點
-            BuySweetPage buySweetPage = new BuySweetPage();
-            buySweetPage.Show();
-            this.Close();
+                if (PuffToCart == false)
+                {
+                    DialogResult R;
+                    R = MessageBox.Show("勾選的泡芙似乎未加入購物車～\n是否要加入購物車", "購物車確認", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (R == DialogResult.Yes)
+                    {
+                        btn_addpuff_Click(null, null);
+                    }
+                    else
+                    {
+                        puff_rbtn_clean();
+                    }
+                }
+
+                if (PuffToCart)
+                {
+                    //轉跳到甜點
+                    BuySweetPage buySweetPage = new BuySweetPage();
+                    buySweetPage.Show();
+                    this.Close();
+
+                    break;
+                }
+            }
         }
     }
 }

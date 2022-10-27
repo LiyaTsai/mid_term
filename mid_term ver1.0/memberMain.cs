@@ -19,7 +19,8 @@ namespace mid_term_ver1._0
 
         private void memberMain_Load(object sender, EventArgs e)
         {
-
+            LogIn logIn = new LogIn();
+            logIn.ShowDialog();
         }
 
         private void lb_goBuySweetPage_Click(object sender, EventArgs e)

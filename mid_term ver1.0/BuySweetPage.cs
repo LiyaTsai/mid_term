@@ -125,11 +125,37 @@ namespace mid_term_ver1._0
             num_productamount.Value = 1;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_puffPage_Click(object sender, EventArgs e)
         {
-            BuyPuffPage buyPuffPage = new BuyPuffPage();
-            buyPuffPage.Show();
-            this.Close();
+            while (true)
+            {
+                bool SweetToCart = (lbox_product.SelectedIndex == -1);
+
+                if (SweetToCart == false)
+                {
+                    DialogResult R;
+                    R = MessageBox.Show("選擇的甜點似乎未加入購物車～\n是否要加入購物車", "購物車確認", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (R == DialogResult.Yes)
+                    {
+                        btn_addsweet_Click(null, null);
+                    }
+                    else
+                    {
+                        sweet_choice_clean();
+                    }
+                }
+                if (SweetToCart)
+                {
+                    BuyPuffPage buyPuffPage = new BuyPuffPage();
+                    buyPuffPage.Show();
+                    this.Close();
+
+                    break;
+                }
+            }
+
+
+
         }
     }
 }
