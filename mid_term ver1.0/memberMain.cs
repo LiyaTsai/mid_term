@@ -19,6 +19,7 @@ namespace mid_term_ver1._0
 
         private void memberMain_Load(object sender, EventArgs e)
         {
+            Console.WriteLine(DateTime.Now.ToShortDateString());
             LogIn logIn = new LogIn();
             logIn.ShowDialog();
         }

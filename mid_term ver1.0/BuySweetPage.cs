@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,14 @@ using System.Windows.Forms;
 
 namespace mid_term_ver1._0
 {
+
     public partial class BuySweetPage : Form
     {
+        SqlConnectionStringBuilder scsb;
+        string strDBConnectionString = "";
         Dictionary<string, int> sweetProduct = new Dictionary<string, int>();
+        List<int> dID = new List<int>();
+        public int dessertID = 0;
         public int myprice = 0;
         public int myamount = 1;
         public string myproduct = "未選購甜點";
@@ -26,19 +32,27 @@ namespace mid_term_ver1._0
 
         private void BuySweetPage_Load(object sender, EventArgs e)
         {
+            //連接momoDB
+            scsb = new SqlConnectionStringBuilder();
+            scsb.DataSource = @".";
+            scsb.InitialCatalog = "mymomo";//database名稱
+            scsb.IntegratedSecurity = true;
+            strDBConnectionString = scsb.ToString();
+
             //甜點品項
-            sweetProduct.Add("cheese餅餅(罐)", 220);
-            sweetProduct.Add("波卡米餅(罐)", 200);
-            sweetProduct.Add("蔓越莓司康(6入)", 350);
-            sweetProduct.Add("百香可可旅人蛋糕(5入)", 350);
-            sweetProduct.Add("裝熟乳酪(5入)", 350);
-            sweetProduct.Add("金光閃閃巧克力球(10入)", 250);
-            sweetProduct.Add("粉紅泡泡巧克力球(10入)", 300);
-            sweetProduct.Add("天使之鈴可麗露(6入)", 450);
-            sweetProduct.Add("檸夏檸檬塔(顆)", 90);
-            sweetProduct.Add("檸檬瑪德蓮(6入)", 270);
-            sweetProduct.Add("酒鬼先生提拉米蘇", 520);
-            sweetProduct.Add("芒果乳酪蛋糕盒", 450);
+            SqlConnection con = new SqlConnection(strDBConnectionString);
+            con.Open();
+            string strSQL = "select * from dessert where dessert_available = 1 and dessert_category != 'puff';";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                dID.Add(Convert.ToInt32( reader["dessert_ID"]));
+                sweetProduct.Add(reader["dessert_name"].ToString(), (int)reader["dessert_price"]);                
+            }
+            reader.Close();
+            con.Close();
 
             foreach (KeyValuePair<string, int> kvp in sweetProduct)
             {
@@ -84,7 +98,7 @@ namespace mid_term_ver1._0
 
             if (sweetchk)
             {//紀錄甜點
-
+                dessertID = dID[(lbox_product.SelectedIndex)];
                 myproduct = sweetProduct.ElementAt(lbox_product.SelectedIndex).Key;
                 myprice = sweetProduct.ElementAt(lbox_product.SelectedIndex).Value;
                 myamount = Convert.ToInt32(num_productamount.Value);
@@ -92,6 +106,7 @@ namespace mid_term_ver1._0
 
                 //global var
                 ArrayList buySweets = new ArrayList();
+                buySweets.Add(dessertID);
                 buySweets.Add(myproduct);
                 buySweets.Add(myprice);
                 buySweets.Add(myamount);
@@ -108,9 +123,9 @@ namespace mid_term_ver1._0
             lbox_cartSweet.Items.Clear();
             foreach (ArrayList buysweets in GlobalVar.G_sweet)
             {
-                string product = (string)buysweets[0];
-                int price = (int)buysweets[1];
-                int amount = (int)buysweets[2];
+                string product = (string)buysweets[1];
+                int price = (int)buysweets[2];
+                int amount = (int)buysweets[];
                 string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
                 lbox_cartSweet.Items.Add(selected);
             }

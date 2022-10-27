@@ -132,9 +132,10 @@ namespace mid_term_ver1._0
         {
             if(txt_phone.Text != "")
             {
+//BUG
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
-                string strSQL = "select * from momo_member where member_phone =  "+txt_phone +";";
+                string strSQL = "select * from momo_member where member_phone like '%  "+txt_phone.Text +"%';";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 int ResultID = Convert.ToInt32( reader["member_id"]);

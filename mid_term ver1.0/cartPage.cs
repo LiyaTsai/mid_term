@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace mid_term_ver1._0
 {
     public partial class cartPage : Form
     {
-
+        string strMyDBConnectionString = "";
         List<string> delivery = new List<string>();
         int additionPurchase = 0;
         public cartPage()
@@ -23,21 +24,28 @@ namespace mid_term_ver1._0
 
         private void cartPage_Load(object sender, EventArgs e)
         {
-            //puff
+            SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+            scsb.DataSource = @".";
+            scsb.InitialCatalog = "mymomo";
+            scsb.IntegratedSecurity = true;
+            strMyDBConnectionString = scsb.ToString();
+            mymomoDB();
+
+                        //puff
             foreach (ArrayList BuyPuff in GlobalVar.G_puff)
             {
                 string Flavor = (string)BuyPuff[0];
                 string selected = string.Format("泡芙：{0}", Flavor);
                 //lbox_cartPuff.Items.Add(selected);
-                                lbox_cartSweet.Items.Add(selected);
+                lbox_cartSweet.Items.Add(selected);
             }
 
             //sweet
             foreach (ArrayList buysweets in GlobalVar.G_sweet)
             {
-                string product = (string)buysweets[0];
-                int price = (int)buysweets[1];
-                int amount = (int)buysweets[2];
+                string product = (string)buysweets[1];
+                int price = (int)buysweets[2];
+                int amount = (int)buysweets[3];
                 string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
                 lbox_cartSweet.Items.Add(selected);
             }
@@ -58,6 +66,15 @@ namespace mid_term_ver1._0
             }
 
             cost_total(100);
+        }
+
+        void mymomoDB()
+        {
+            SqlConnection con = new SqlConnection(strMyDBConnectionString);
+            con.Open();
+            string strSQL = "select * from dessert ;";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataReader reader = cmd.ExecuteReader();
         }
 
 
@@ -110,22 +127,9 @@ namespace mid_term_ver1._0
         {//清除一個品項
 
             cost_total(100);
-            if ((lbox_cartPuff.SelectedIndex == -1) && (lbox_cartSweet.SelectedIndex == -1))
+            if ((lbox_cartSweet.SelectedIndex == -1))
             {
                 MessageBox.Show("請選擇移除品項");
-            }
-            if ((lbox_cartPuff.SelectedIndex != -1) && (lbox_cartSweet.SelectedIndex != -1))
-            {
-                MessageBox.Show("您同時選擇泡芙及甜點了!!!");
-                lbox_cartPuff.SelectedIndex = -1;
-                lbox_cartSweet.SelectedIndex = -1;
-            }
-            if (lbox_cartPuff.SelectedIndex != -1)
-            {
-                int selindex = lbox_cartPuff.SelectedIndex;
-                GlobalVar.G_puff.RemoveAt(selindex);
-                lbox_cartPuff.Items.RemoveAt(selindex);
-                cost_total(100);
             }
             if (lbox_cartSweet.SelectedIndex != -1)
             {
@@ -137,7 +141,7 @@ namespace mid_term_ver1._0
                 cost_total(100);
             }
 
-            bool lboxchk = (lbox_cartPuff.Items.Count > 0) || (lbox_cartSweet.Items.Count > 0);
+            bool lboxchk = (lbox_cartSweet.Items.Count > 0);
             if (lboxchk)
             {
 
@@ -152,8 +156,7 @@ namespace mid_term_ver1._0
 
         private void btn_RemoveAll_Click(object sender, EventArgs e)
         {//清除全部品項
-
-            lbox_cartPuff.Items.Clear();
+ 
             lbox_cartSweet.Items.Clear();
             GlobalVar.G_puff.Clear();
             GlobalVar.G_sweet.Clear();
@@ -254,6 +257,11 @@ namespace mid_term_ver1._0
             cost_total(100);
         }
 
-
+        private void btn_order_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            DateTime dateTime = DateTime.Now;
+            Console.WriteLine(dateTime.Month.ToString() + dateTime.Day.ToString() + random.Next(1000, 9999).ToString());
+        }
     }
 }
