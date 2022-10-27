@@ -104,11 +104,11 @@ namespace mid_term_ver1._0
             string blankmsg = "";
             DateTime age12 = DateTime.Now.AddYears(-12);
             bool accountchk = (txt_account.Text != "");
-            bool passwordchk = Regex.IsMatch(txt_password.Text, @"\w{8}");
+            bool passwordchk = Regex.IsMatch(txt_password.Text, @"\w{4}");
             bool namechk = (txt_name.Text != "") ;
             bool phonechk = Regex.IsMatch(txt_phone.Text, @"^09[0-9]{8}$");
             bool birthdaychk = dtp_birthday.Value <= age12;
-            bool emailchk = Regex.IsMatch(txt_email.Text, @"^([\w\.\-]+)@([\w\.\-]+)\.[0-9a-zA-Z]{2,5}$");
+            bool emailchk = Regex.IsMatch(txt_email.Text, @"^([\w\.\-]+)@([\w\.\-]+)\.[a-zA-Z]{2,5}$");
             bool addresschk = Regex.IsMatch(txt_address.Text, @"^\w+[縣市]\w+[路]*[0-9]{1,}[號]");
             bool marriagechk = (rbtn_single.Checked == true) || (rbtn_marriaged.Checked == true);
 

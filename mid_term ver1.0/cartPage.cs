@@ -27,8 +27,9 @@ namespace mid_term_ver1._0
             foreach (ArrayList BuyPuff in GlobalVar.G_puff)
             {
                 string Flavor = (string)BuyPuff[0];
-                string selected = string.Format("第{0}盒泡芙：{1}", lbox_cartPuff.Items.Count + 1, Flavor);
-                lbox_cartPuff.Items.Add(selected);
+                string selected = string.Format("泡芙：{0}", Flavor);
+                //lbox_cartPuff.Items.Add(selected);
+                                lbox_cartSweet.Items.Add(selected);
             }
 
             //sweet
@@ -56,8 +57,9 @@ namespace mid_term_ver1._0
                 cbox_delivery.Items.Add(item);
             }
 
-
+            cost_total(100);
         }
+
 
         void cost_total(int a)
         {//記總價
@@ -108,6 +110,16 @@ namespace mid_term_ver1._0
         {//清除一個品項
 
             cost_total(100);
+            if ((lbox_cartPuff.SelectedIndex == -1) && (lbox_cartSweet.SelectedIndex == -1))
+            {
+                MessageBox.Show("請選擇移除品項");
+            }
+            if ((lbox_cartPuff.SelectedIndex != -1) && (lbox_cartSweet.SelectedIndex != -1))
+            {
+                MessageBox.Show("您同時選擇泡芙及甜點了!!!");
+                lbox_cartPuff.SelectedIndex = -1;
+                lbox_cartSweet.SelectedIndex = -1;
+            }
             if (lbox_cartPuff.SelectedIndex != -1)
             {
                 int selindex = lbox_cartPuff.SelectedIndex;
@@ -115,11 +127,6 @@ namespace mid_term_ver1._0
                 lbox_cartPuff.Items.RemoveAt(selindex);
                 cost_total(100);
             }
-            else
-            {
-                MessageBox.Show("請選擇移除品項");
-            }
-
             if (lbox_cartSweet.SelectedIndex != -1)
             {
                 int selindex = lbox_cartSweet.SelectedIndex;
@@ -128,10 +135,6 @@ namespace mid_term_ver1._0
                 lbox_cartSweet.Items.RemoveAt(selindex);
 
                 cost_total(100);
-            }
-            else
-            {
-                //MessageBox.Show("請選擇移除品項");
             }
 
             bool lboxchk = (lbox_cartPuff.Items.Count > 0) || (lbox_cartSweet.Items.Count > 0);
@@ -166,42 +169,48 @@ namespace mid_term_ver1._0
 
             if (lb_total.Text != "0")
             {
-                if (txt_discount.Text == "好吃不胖")
-                {
-                    MessageBox.Show("已獲得9折優惠");
-                    cost_total(90);
-                }
-                if (txt_discount.Text == "凸凸可愛")
-                {
-                    MessageBox.Show("已獲得9折優惠");
-                    cost_total(90);
-                }
-                if (txt_discount.Text == "栗子可愛")
-                {//私心，不解釋
 
-                    MessageBox.Show("已獲得5折優惠");
-                    cost_total(50);
-                }
-                if (txt_discount.Text == "巧克力球")
-                {
-                    MessageBox.Show("已獲得9折優惠");
-                    cost_total(90);
-                }
-                if (txt_discount.Text == "金光閃閃巧克力球")
-                {
-                    MessageBox.Show("已獲得8折優惠");
-                    cost_total(80);
-                }
-                if (txt_discount.Text == DateTime.Now.Month.ToString())
-                {//我知道整數會無條件退位
-
-                    MessageBox.Show("已獲得95折優惠");
-                    cost_total(95);
-                }
-                if ((txt_discount.Text != "好吃不胖") && (txt_discount.Text != "凸凸可愛") && (txt_discount.Text != "栗子可愛") && (txt_discount.Text != "巧克力球") && (txt_discount.Text != "金光閃閃巧克力球") && (txt_discount.Text != DateTime.Now.Month.ToString()))
+                if ((txt_discount.Text != "好吃不胖") && (txt_discount.Text != "凸凸可愛") && (txt_discount.Text != "栗子可愛") && (txt_discount.Text != "巧克力球") && (txt_discount.Text != "金光閃閃巧克力球") && (txt_discount.Text != String.Format("{0}95", DateTime.Now.Month)))
                 {
                     MessageBox.Show("折扣碼有誤");
                     cost_total(100);
+                    txt_discount.Text = "";
+                }
+                else
+                {
+                    if (txt_discount.Text == "好吃不胖")
+                    {
+                        MessageBox.Show("已獲得9折優惠");
+                        cost_total(90);
+                    }
+                    if (txt_discount.Text == "凸凸可愛")
+                    {
+                        MessageBox.Show("已獲得9折優惠");
+                        cost_total(90);
+                    }
+                    if (txt_discount.Text == "栗子可愛")
+                    {//私心，不解釋
+
+                        MessageBox.Show("已獲得5折優惠");
+                        cost_total(50);
+                    }
+                    if (txt_discount.Text == "巧克力球")
+                    {
+                        MessageBox.Show("已獲得9折優惠");
+                        cost_total(90);
+                    }
+                    if (txt_discount.Text == "金光閃閃巧克力球")
+                    {
+                        MessageBox.Show("已獲得8折優惠");
+                        cost_total(80);
+                    }
+                    if (txt_discount.Text == String.Format("{0}95", DateTime.Now.Month))
+                    {//我知道整數會無條件退位
+
+                        MessageBox.Show("已獲得95折優惠");
+                        cost_total(95);
+                    }
+                    txt_discount.Text = "";
                 }
             }
             else

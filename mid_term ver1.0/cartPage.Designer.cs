@@ -125,7 +125,6 @@
             this.rbtn_giftbox.Name = "rbtn_giftbox";
             this.rbtn_giftbox.Size = new System.Drawing.Size(140, 29);
             this.rbtn_giftbox.TabIndex = 0;
-            this.rbtn_giftbox.TabStop = true;
             this.rbtn_giftbox.Text = "禮盒(+$100)";
             this.rbtn_giftbox.UseVisualStyleBackColor = true;
             this.rbtn_giftbox.CheckedChanged += new System.EventHandler(this.rbtn_giftbox_CheckedChanged);
@@ -133,6 +132,7 @@
             // rbtn_basicPackage
             // 
             this.rbtn_basicPackage.AutoSize = true;
+            this.rbtn_basicPackage.Checked = true;
             this.rbtn_basicPackage.Font = new System.Drawing.Font("Yu Gothic", 14F);
             this.rbtn_basicPackage.Location = new System.Drawing.Point(15, 30);
             this.rbtn_basicPackage.Margin = new System.Windows.Forms.Padding(2);
@@ -153,7 +153,6 @@
             this.rbtn_giftbag.Name = "rbtn_giftbag";
             this.rbtn_giftbag.Size = new System.Drawing.Size(129, 29);
             this.rbtn_giftbag.TabIndex = 0;
-            this.rbtn_giftbag.TabStop = true;
             this.rbtn_giftbag.Text = "提袋(+$20)";
             this.rbtn_giftbag.UseVisualStyleBackColor = true;
             this.rbtn_giftbag.CheckedChanged += new System.EventHandler(this.rbtn_giftbag_CheckedChanged);
@@ -204,7 +203,6 @@
             this.rbtn_cash.TabStop = true;
             this.rbtn_cash.Text = "付現";
             this.rbtn_cash.UseVisualStyleBackColor = true;
-            this.rbtn_cash.CheckedChanged += new System.EventHandler(this.rbtn_cash_CheckedChanged);
             // 
             // rbtn_trans
             // 
@@ -217,7 +215,6 @@
             this.rbtn_trans.TabStop = true;
             this.rbtn_trans.Text = "匯款";
             this.rbtn_trans.UseVisualStyleBackColor = true;
-            this.rbtn_trans.CheckedChanged += new System.EventHandler(this.rbtn_trans_CheckedChanged);
             // 
             // rbtn_linepay
             // 
@@ -230,7 +227,6 @@
             this.rbtn_linepay.TabStop = true;
             this.rbtn_linepay.Text = "Line Pay";
             this.rbtn_linepay.UseVisualStyleBackColor = true;
-            this.rbtn_linepay.CheckedChanged += new System.EventHandler(this.rbtn_linepay_CheckedChanged);
             // 
             // lbox_cartSweet
             // 

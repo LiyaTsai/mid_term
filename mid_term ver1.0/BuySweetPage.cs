@@ -157,5 +157,17 @@ namespace mid_term_ver1._0
 
 
         }
+
+        private void btn_menu_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.Show();
+        }
+
+        private void btn_goToCart_Click(object sender, EventArgs e)
+        {
+            cartPage cartPage = new cartPage();
+            cartPage.ShowDialog();
+        }
     }
 }

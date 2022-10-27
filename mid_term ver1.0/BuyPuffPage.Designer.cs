@@ -45,6 +45,8 @@
             this.lbox_cartPuff = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_menu = new System.Windows.Forms.Button();
+            this.btn_goToCart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -88,7 +90,7 @@
             this.btn_addpuff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_addpuff.BackgroundImage")));
             this.btn_addpuff.Font = new System.Drawing.Font("Yu Gothic", 14F);
             this.btn_addpuff.Location = new System.Drawing.Point(495, 404);
-            this.btn_addpuff.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_addpuff.Margin = new System.Windows.Forms.Padding(2);
             this.btn_addpuff.Name = "btn_addpuff";
             this.btn_addpuff.Size = new System.Drawing.Size(190, 40);
             this.btn_addpuff.TabIndex = 18;
@@ -110,9 +112,9 @@
             this.groupBox2.Controls.Add(this.ckb_strawberrycheese);
             this.groupBox2.Font = new System.Drawing.Font("Yu Gothic", 16F);
             this.groupBox2.Location = new System.Drawing.Point(75, 165);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(611, 230);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
@@ -155,7 +157,7 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.Location = new System.Drawing.Point(14, 61);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(581, 122);
             this.pictureBox2.TabIndex = 11;
@@ -167,7 +169,7 @@
             this.ckb_chocolate.BackColor = System.Drawing.Color.MistyRose;
             this.ckb_chocolate.Font = new System.Drawing.Font("Yu Gothic", 16F);
             this.ckb_chocolate.Location = new System.Drawing.Point(475, 187);
-            this.ckb_chocolate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckb_chocolate.Margin = new System.Windows.Forms.Padding(2);
             this.ckb_chocolate.Name = "ckb_chocolate";
             this.ckb_chocolate.Size = new System.Drawing.Size(120, 33);
             this.ckb_chocolate.TabIndex = 0;
@@ -180,7 +182,7 @@
             this.ckb_vanilla.BackColor = System.Drawing.Color.MistyRose;
             this.ckb_vanilla.Font = new System.Drawing.Font("Yu Gothic", 16F);
             this.ckb_vanilla.Location = new System.Drawing.Point(316, 187);
-            this.ckb_vanilla.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckb_vanilla.Margin = new System.Windows.Forms.Padding(2);
             this.ckb_vanilla.Name = "ckb_vanilla";
             this.ckb_vanilla.Size = new System.Drawing.Size(120, 33);
             this.ckb_vanilla.TabIndex = 0;
@@ -193,7 +195,7 @@
             this.ckb_earlgrey.BackColor = System.Drawing.Color.MistyRose;
             this.ckb_earlgrey.Font = new System.Drawing.Font("Yu Gothic", 16F);
             this.ckb_earlgrey.Location = new System.Drawing.Point(183, 187);
-            this.ckb_earlgrey.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckb_earlgrey.Margin = new System.Windows.Forms.Padding(2);
             this.ckb_earlgrey.Name = "ckb_earlgrey";
             this.ckb_earlgrey.Size = new System.Drawing.Size(98, 33);
             this.ckb_earlgrey.TabIndex = 0;
@@ -206,7 +208,7 @@
             this.ckb_strawberrycheese.BackColor = System.Drawing.Color.MistyRose;
             this.ckb_strawberrycheese.Font = new System.Drawing.Font("Yu Gothic", 16F);
             this.ckb_strawberrycheese.Location = new System.Drawing.Point(14, 187);
-            this.ckb_strawberrycheese.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckb_strawberrycheese.Margin = new System.Windows.Forms.Padding(2);
             this.ckb_strawberrycheese.Name = "ckb_strawberrycheese";
             this.ckb_strawberrycheese.Size = new System.Drawing.Size(120, 33);
             this.ckb_strawberrycheese.TabIndex = 0;
@@ -218,7 +220,7 @@
             this.lbox_cartPuff.FormattingEnabled = true;
             this.lbox_cartPuff.ItemHeight = 12;
             this.lbox_cartPuff.Location = new System.Drawing.Point(75, 473);
-            this.lbox_cartPuff.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbox_cartPuff.Margin = new System.Windows.Forms.Padding(2);
             this.lbox_cartPuff.Name = "lbox_cartPuff";
             this.lbox_cartPuff.Size = new System.Drawing.Size(407, 184);
             this.lbox_cartPuff.TabIndex = 20;
@@ -229,7 +231,7 @@
             this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.button2.Location = new System.Drawing.Point(0, 150);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(53, 267);
             this.button2.TabIndex = 33;
@@ -243,7 +245,7 @@
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.button1.Location = new System.Drawing.Point(0, 417);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 267);
             this.button1.TabIndex = 34;
@@ -252,12 +254,42 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.sweetPage_Click);
             // 
+            // btn_menu
+            // 
+            this.btn_menu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_menu.BackgroundImage")));
+            this.btn_menu.Font = new System.Drawing.Font("Yu Gothic", 14F);
+            this.btn_menu.Location = new System.Drawing.Point(807, 165);
+            this.btn_menu.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_menu.Name = "btn_menu";
+            this.btn_menu.Size = new System.Drawing.Size(190, 53);
+            this.btn_menu.TabIndex = 35;
+            this.btn_menu.Text = "甜點實拍照片";
+            this.btn_menu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_menu.UseVisualStyleBackColor = true;
+            this.btn_menu.Click += new System.EventHandler(this.btn_menu_Click);
+            // 
+            // btn_goToCart
+            // 
+            this.btn_goToCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_goToCart.BackgroundImage")));
+            this.btn_goToCart.Font = new System.Drawing.Font("Yu Gothic", 14F);
+            this.btn_goToCart.Location = new System.Drawing.Point(807, 643);
+            this.btn_goToCart.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_goToCart.Name = "btn_goToCart";
+            this.btn_goToCart.Size = new System.Drawing.Size(190, 53);
+            this.btn_goToCart.TabIndex = 36;
+            this.btn_goToCart.Text = "前往購物車";
+            this.btn_goToCart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_goToCart.UseVisualStyleBackColor = true;
+            this.btn_goToCart.Click += new System.EventHandler(this.btn_goToCart_Click);
+            // 
             // BuyPuffPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.ClientSize = new System.Drawing.Size(1008, 707);
+            this.Controls.Add(this.btn_goToCart);
+            this.Controls.Add(this.btn_menu);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbox_cartPuff);
@@ -266,7 +298,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BuyPuffPage";
             this.Text = "BuyPuff";
             this.Load += new System.EventHandler(this.BuyPuff_Load);
@@ -296,5 +328,7 @@
         private System.Windows.Forms.ListBox lbox_cartPuff;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_menu;
+        private System.Windows.Forms.Button btn_goToCart;
     }
 }

@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.num_productamount = new System.Windows.Forms.NumericUpDown();
-            this.btn_form2 = new System.Windows.Forms.Button();
+            this.btn_goToCart = new System.Windows.Forms.Button();
             this.btn_menu = new System.Windows.Forms.Button();
             this.btn_addsweet = new System.Windows.Forms.Button();
             this.lbox_product = new System.Windows.Forms.ListBox();
@@ -87,7 +87,7 @@
             // 
             this.num_productamount.Font = new System.Drawing.Font("Yu Gothic", 14F);
             this.num_productamount.Location = new System.Drawing.Point(213, 408);
-            this.num_productamount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.num_productamount.Margin = new System.Windows.Forms.Padding(2);
             this.num_productamount.Maximum = new decimal(new int[] {
             99,
             0,
@@ -103,38 +103,40 @@
             0});
             this.num_productamount.ValueChanged += new System.EventHandler(this.num_productamount_ValueChanged);
             // 
-            // btn_form2
+            // btn_goToCart
             // 
-            this.btn_form2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_form2.BackgroundImage")));
-            this.btn_form2.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.btn_form2.Location = new System.Drawing.Point(810, 668);
-            this.btn_form2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_form2.Name = "btn_form2";
-            this.btn_form2.Size = new System.Drawing.Size(190, 53);
-            this.btn_form2.TabIndex = 27;
-            this.btn_form2.Text = "前往購物車";
-            this.btn_form2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_form2.UseVisualStyleBackColor = true;
+            this.btn_goToCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_goToCart.BackgroundImage")));
+            this.btn_goToCart.Font = new System.Drawing.Font("Yu Gothic", 14F);
+            this.btn_goToCart.Location = new System.Drawing.Point(810, 668);
+            this.btn_goToCart.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_goToCart.Name = "btn_goToCart";
+            this.btn_goToCart.Size = new System.Drawing.Size(190, 53);
+            this.btn_goToCart.TabIndex = 27;
+            this.btn_goToCart.Text = "前往購物車";
+            this.btn_goToCart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_goToCart.UseVisualStyleBackColor = true;
+            this.btn_goToCart.Click += new System.EventHandler(this.btn_goToCart_Click);
             // 
             // btn_menu
             // 
             this.btn_menu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_menu.BackgroundImage")));
             this.btn_menu.Font = new System.Drawing.Font("Yu Gothic", 14F);
             this.btn_menu.Location = new System.Drawing.Point(802, 357);
-            this.btn_menu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_menu.Margin = new System.Windows.Forms.Padding(2);
             this.btn_menu.Name = "btn_menu";
             this.btn_menu.Size = new System.Drawing.Size(190, 53);
             this.btn_menu.TabIndex = 28;
             this.btn_menu.Text = "甜點實拍照片";
             this.btn_menu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_menu.UseVisualStyleBackColor = true;
+            this.btn_menu.Click += new System.EventHandler(this.btn_menu_Click);
             // 
             // btn_addsweet
             // 
             this.btn_addsweet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_addsweet.BackgroundImage")));
             this.btn_addsweet.Font = new System.Drawing.Font("Yu Gothic", 14F);
             this.btn_addsweet.Location = new System.Drawing.Point(638, 408);
-            this.btn_addsweet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_addsweet.Margin = new System.Windows.Forms.Padding(2);
             this.btn_addsweet.Name = "btn_addsweet";
             this.btn_addsweet.Size = new System.Drawing.Size(136, 53);
             this.btn_addsweet.TabIndex = 29;
@@ -150,7 +152,7 @@
             this.lbox_product.FormattingEnabled = true;
             this.lbox_product.ItemHeight = 25;
             this.lbox_product.Location = new System.Drawing.Point(157, 202);
-            this.lbox_product.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbox_product.Margin = new System.Windows.Forms.Padding(2);
             this.lbox_product.Name = "lbox_product";
             this.lbox_product.Size = new System.Drawing.Size(617, 179);
             this.lbox_product.TabIndex = 26;
@@ -241,7 +243,7 @@
             this.lbox_cartSweet.FormattingEnabled = true;
             this.lbox_cartSweet.ItemHeight = 12;
             this.lbox_cartSweet.Location = new System.Drawing.Point(158, 527);
-            this.lbox_cartSweet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbox_cartSweet.Margin = new System.Windows.Forms.Padding(2);
             this.lbox_cartSweet.Name = "lbox_cartSweet";
             this.lbox_cartSweet.Size = new System.Drawing.Size(616, 136);
             this.lbox_cartSweet.TabIndex = 31;
@@ -252,7 +254,7 @@
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.button1.Location = new System.Drawing.Point(0, 417);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 267);
             this.button1.TabIndex = 32;
@@ -266,7 +268,7 @@
             this.btn_puffPage.Font = new System.Drawing.Font("Yu Gothic UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_puffPage.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btn_puffPage.Location = new System.Drawing.Point(0, 150);
-            this.btn_puffPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_puffPage.Margin = new System.Windows.Forms.Padding(2);
             this.btn_puffPage.Name = "btn_puffPage";
             this.btn_puffPage.Size = new System.Drawing.Size(53, 267);
             this.btn_puffPage.TabIndex = 32;
@@ -286,7 +288,7 @@
             this.Controls.Add(this.lbox_cartSweet);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.num_productamount);
-            this.Controls.Add(this.btn_form2);
+            this.Controls.Add(this.btn_goToCart);
             this.Controls.Add(this.btn_menu);
             this.Controls.Add(this.btn_addsweet);
             this.Controls.Add(this.lbox_product);
@@ -299,7 +301,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BuySweetPage";
             this.Text = "BuySweetPage";
             this.Load += new System.EventHandler(this.BuySweetPage_Load);
@@ -316,7 +318,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown num_productamount;
-        private System.Windows.Forms.Button btn_form2;
+        private System.Windows.Forms.Button btn_goToCart;
         private System.Windows.Forms.Button btn_menu;
         private System.Windows.Forms.Button btn_addsweet;
         private System.Windows.Forms.ListBox lbox_product;

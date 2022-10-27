@@ -29,21 +29,27 @@ namespace mid_term_ver1._0
             //紀錄口味
             ArrayList buypuff = new ArrayList();
             string myflavor = "";
+            int myflavorCount=0;
             if (ckb_strawberrycheese.Checked == true)
             {
                 myflavor += ("[草莓起司]");
+                myflavorCount++;
             }
             if (ckb_earlgrey.Checked == true)
             {
                 myflavor += ("[伯爵茶]");
+                myflavorCount++;
+
             }
             if (ckb_vanilla.Checked == true)
             {
                 myflavor += ("[香草奶油]");
+                myflavorCount++;
             }
             if (ckb_chocolate.Checked == true)
             {
                 myflavor += ("[香濃可可]");
+                myflavorCount++;
             }
 
             if ((ckb_chocolate.Checked == true) && (ckb_earlgrey.Checked == true) && (ckb_strawberrycheese.Checked == true) && (ckb_vanilla.Checked == true))
@@ -59,6 +65,7 @@ namespace mid_term_ver1._0
             {
                 //儲存泡芙口味到global var
                 buypuff.Add(myflavor);
+                buypuff.Add(myflavorCount);
                 GlobalVar.G_puff.Add(buypuff);
 
                 //計價 
@@ -70,7 +77,8 @@ namespace mid_term_ver1._0
             foreach (ArrayList BuyPuff in GlobalVar.G_puff)
             {
                 string Flavor = (string)BuyPuff[0];
-                string selected = string.Format("第{0}盒泡芙：{1}",lbox_cartPuff.Items.Count+1, Flavor);
+                int flavorCount = (int)BuyPuff[1];
+                string selected = string.Format("第{0}盒泡芙，共{1}種口味: {2}",lbox_cartPuff.Items.Count+1,flavorCount, Flavor);
                 lbox_cartPuff.Items.Add(selected);
             }
 
@@ -117,6 +125,18 @@ namespace mid_term_ver1._0
                     break;
                 }
             }
+        }
+
+        private void btn_menu_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.Show();
+        }
+
+        private void btn_goToCart_Click(object sender, EventArgs e)
+        {
+            cartPage cartPage = new cartPage();
+            cartPage.ShowDialog();
         }
     }
 }
