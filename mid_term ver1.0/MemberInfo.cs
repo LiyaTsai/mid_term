@@ -132,14 +132,55 @@ namespace mid_term_ver1._0
         {
             if(txt_phone.Text != "")
             {
-//BUG
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
-                string strSQL = "select * from momo_member where member_phone like '%  "+txt_phone.Text +"%';";
+                string strSQL = "select * from momo_member where member_phone like @searchPhone;";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
+                cmd.Parameters.AddWithValue("@searchPhone", "%" + txt_phone.Text + "%");
                 SqlDataReader reader = cmd.ExecuteReader();
-                int ResultID = Convert.ToInt32( reader["member_id"]);
-                lb_ID.Text = ResultID.ToString();
+
+                while (reader.Read())
+                {
+                    Console.WriteLine(reader["member_ID"]); 
+                    lb_ID.Text = reader["member_ID"].ToString();
+                    txt_name.Text = reader["member_name"].ToString();
+                    txt_phone.Text = reader["member_phone"].ToString(); 
+                    dtp_birthday.Value = Convert.ToDateTime(reader["member_birthday"]); ;
+                    txt_email.Text = reader["member_email"].ToString();
+                    txt_point.Text = reader["member_point"].ToString();
+                    txt_address.Text = reader["member_address"].ToString();
+                }
+                reader.Close();
+                con.Close();
+
+            }
+        }
+
+        private void btn_emailSearch_Click(object sender, EventArgs e)
+        {
+            if (txt_email.Text != "")
+            {
+                SqlConnection con = new SqlConnection(strDBConnectionString);
+                con.Open();
+                string strSQL = "select * from momo_member where member_email like @searchemail;";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                cmd.Parameters.AddWithValue("@searchemail", "%" + txt_email.Text + "%");
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Console.WriteLine(reader["member_ID"]);
+                    lb_ID.Text = reader["member_ID"].ToString();
+                    txt_name.Text = reader["member_name"].ToString();
+                    txt_phone.Text = reader["member_phone"].ToString();
+                    dtp_birthday.Value = Convert.ToDateTime(reader["member_birthday"]); ;
+                    txt_email.Text = reader["member_email"].ToString();
+                    txt_point.Text = reader["member_point"].ToString();
+                    txt_address.Text = reader["member_address"].ToString();
+                }
+                reader.Close();
+                con.Close();
+
             }
         }
     }

@@ -32,6 +32,12 @@ namespace mid_term_ver1._0
             scsb.InitialCatalog = "mymomo";
             scsb.IntegratedSecurity = true;
             strMyDBConnectionString = scsb.ToString();
+            int p = GlobalVar.G_user_permission;
+            if (p == 1)
+            {
+                btn_addDessert.Visible = false;
+                btn_Reload.Visible = false;
+            }
 
             mymomoDB();
             ListView_IMG();
@@ -120,6 +126,11 @@ namespace mid_term_ver1._0
         private void btn_imageMode_Click(object sender, EventArgs e)
         {
             ListView_IMG();
+        }
+
+        private void btn_addDessert_Click(object sender, EventArgs e)
+        {//新增商品
+            
         }
     }
 }

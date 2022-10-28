@@ -16,6 +16,8 @@ namespace mid_term_ver1._0
     {
         SqlConnectionStringBuilder scsb;
         string strDBConnectionString = "";
+        List<int> dID = new List<int>();
+        List<string> dName = new List<string>();
 
         public BuyPuffPage()
         {
@@ -24,6 +26,27 @@ namespace mid_term_ver1._0
 
         private void BuyPuff_Load(object sender, EventArgs e)
         {
+            /*
+            //連接momoDB
+            scsb = new SqlConnectionStringBuilder();
+            scsb.DataSource = @".";
+            scsb.InitialCatalog = "mymomo";//database名稱
+            scsb.IntegratedSecurity = true;
+            strDBConnectionString = scsb.ToString();
+
+            //甜點品項
+            SqlConnection con = new SqlConnection(strDBConnectionString);
+            con.Open();
+            string strSQL = "select * from dessert where dessert_available = 1 and dessert_category != 'puff';";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                dID.Add(Convert.ToInt32(reader["dessert_ID"]));
+                dName.Add(reader["dessert_name"].ToString());
+            }
+            */
 
         }
 
@@ -32,7 +55,9 @@ namespace mid_term_ver1._0
 
             //紀錄口味
             ArrayList buypuff = new ArrayList();
+            //List<int> puff_ID = new List<int>();
             string myflavor = "";
+            //string myflavorID = "";
             int myflavorCount=0;
             if (ckb_strawberrycheese.Checked == true)
             {
@@ -68,6 +93,7 @@ namespace mid_term_ver1._0
             else
             {
                 //儲存泡芙口味到global var
+                Console.WriteLine(myflavor);
                 buypuff.Add(myflavor);
                 buypuff.Add(myflavorCount);
                 GlobalVar.G_puff.Add(buypuff);

@@ -173,6 +173,7 @@
             this.ckb_chocolate.Name = "ckb_chocolate";
             this.ckb_chocolate.Size = new System.Drawing.Size(120, 33);
             this.ckb_chocolate.TabIndex = 0;
+            this.ckb_chocolate.Tag = "115";
             this.ckb_chocolate.Text = "香濃可可";
             this.ckb_chocolate.UseVisualStyleBackColor = false;
             // 
@@ -186,6 +187,7 @@
             this.ckb_vanilla.Name = "ckb_vanilla";
             this.ckb_vanilla.Size = new System.Drawing.Size(120, 33);
             this.ckb_vanilla.TabIndex = 0;
+            this.ckb_vanilla.Tag = "114";
             this.ckb_vanilla.Text = "香草奶油";
             this.ckb_vanilla.UseVisualStyleBackColor = false;
             // 
@@ -199,6 +201,7 @@
             this.ckb_earlgrey.Name = "ckb_earlgrey";
             this.ckb_earlgrey.Size = new System.Drawing.Size(98, 33);
             this.ckb_earlgrey.TabIndex = 0;
+            this.ckb_earlgrey.Tag = "113";
             this.ckb_earlgrey.Text = "伯爵茶";
             this.ckb_earlgrey.UseVisualStyleBackColor = false;
             // 
@@ -212,6 +215,7 @@
             this.ckb_strawberrycheese.Name = "ckb_strawberrycheese";
             this.ckb_strawberrycheese.Size = new System.Drawing.Size(120, 33);
             this.ckb_strawberrycheese.TabIndex = 0;
+            this.ckb_strawberrycheese.Tag = "112";
             this.ckb_strawberrycheese.Text = "草莓起司";
             this.ckb_strawberrycheese.UseVisualStyleBackColor = false;
             // 

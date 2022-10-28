@@ -24,20 +24,26 @@ namespace mid_term_ver1._0
 
         private void cartPage_Load(object sender, EventArgs e)
         {
+            Console.WriteLine("CartPage");
             SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
             scsb.DataSource = @".";
             scsb.InitialCatalog = "mymomo";
             scsb.IntegratedSecurity = true;
             strMyDBConnectionString = scsb.ToString();
-            mymomoDB();
 
-                        //puff
+            SqlConnection con = new SqlConnection(strMyDBConnectionString);
+            con.Open();
+            string strSQL = "select * from dessert ;";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            //puff
             foreach (ArrayList BuyPuff in GlobalVar.G_puff)
             {
                 string Flavor = (string)BuyPuff[0];
                 string selected = string.Format("泡芙：{0}", Flavor);
                 //lbox_cartPuff.Items.Add(selected);
-                lbox_cartSweet.Items.Add(selected);
+                lbox_cartPuff.Items.Add(selected);
             }
 
             //sweet
@@ -49,8 +55,6 @@ namespace mid_term_ver1._0
                 string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
                 lbox_cartSweet.Items.Add(selected);
             }
-            GlobalVar.G_user_info.Add("name", "mario");
-            GlobalVar.G_user_info.Add("phone", "0987666444");
 
             lb_name.Text = GlobalVar.G_user_info["name"].ToString();
             lb_phone.Text = GlobalVar.G_user_info["phone"].ToString();
@@ -64,18 +68,9 @@ namespace mid_term_ver1._0
             {//取貨選單
                 cbox_delivery.Items.Add(item);
             }
-
             cost_total(100);
         }
 
-        void mymomoDB()
-        {
-            SqlConnection con = new SqlConnection(strMyDBConnectionString);
-            con.Open();
-            string strSQL = "select * from dessert ;";
-            SqlCommand cmd = new SqlCommand(strSQL, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-        }
 
 
         void cost_total(int a)
@@ -106,14 +101,17 @@ namespace mid_term_ver1._0
                 total = GlobalVar.G_puff.Count * 400;
             }
 
-            if (GlobalVar.G_puff.Count > 0)
+            if (GlobalVar.G_sweet.Count > 0)
             {
                 foreach (ArrayList buysweets in GlobalVar.G_sweet)
                 {
-                    int price = (int)buysweets[1];
-                    int amount = (int)buysweets[2];
+                    int price = (int)buysweets[2];
+                    int amount = (int)buysweets[3];
 
-                    total += (price * amount);
+                    int sub = (price * amount);
+                    total = total +sub;
+
+                    Console.WriteLine("sub: " + sub);
                 }
             }
             total = total + additionPurchase;
@@ -121,6 +119,7 @@ namespace mid_term_ver1._0
             //折扣
             total = total * a / 100;
             lb_total.Text = total.ToString();
+
         }
 
         private void brtn_RemoveOne_Click(object sender, EventArgs e)
@@ -261,7 +260,19 @@ namespace mid_term_ver1._0
         {
             Random random = new Random();
             DateTime dateTime = DateTime.Now;
-            Console.WriteLine(dateTime.Month.ToString() + dateTime.Day.ToString() + random.Next(1000, 9999).ToString());
+            string order_id = dateTime.Year.ToString() + dateTime.Month.ToString() + dateTime.Day.ToString() + dateTime.Hour.ToString() + dateTime.Second.ToString() + random.Next(1000, 9999).ToString();
+
+            SqlConnection con = new SqlConnection(strMyDBConnectionString);
+            con.Open();
+            string strSQL = "insert dessertOrder( dessertOrder_ID, member_ID, dessert_ID, dessert_price) values ( @dessertOrder_ID, @member_ID, @dessert_ID, @dessert_price )";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            cmd.Parameters.AddWithValue("@dessertOrder_ID", order_id);
+            cmd.Parameters.AddWithValue("@member_ID", GlobalVar.G_user_info[0]);
+            cmd.Parameters.AddWithValue("@dessert_ID", GlobalVar.G_sweet[0]);
+            cmd.Parameters.AddWithValue("@dessert_price", GlobalVar.G_sweet[2]);
+            SqlDataReader reader = cmd.ExecuteReader();
+            con.Close();           
+
         }
     }
 }

@@ -46,9 +46,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(398, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(597, 18);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(306, 347);
+            this.pictureBox1.Size = new System.Drawing.Size(459, 520);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -56,9 +57,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(311, 404);
+            this.label1.Location = new System.Drawing.Point(466, 606);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 45);
+            this.label1.Size = new System.Drawing.Size(135, 68);
             this.label1.TabIndex = 1;
             this.label1.Text = "帳號";
             // 
@@ -66,9 +68,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(311, 473);
+            this.label2.Location = new System.Drawing.Point(466, 710);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 45);
+            this.label2.Size = new System.Drawing.Size(135, 68);
             this.label2.TabIndex = 2;
             this.label2.Text = "密碼";
             // 
@@ -76,9 +79,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(206, 548);
+            this.label3.Location = new System.Drawing.Point(327, 824);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(195, 45);
+            this.label3.Size = new System.Drawing.Size(294, 68);
             this.label3.TabIndex = 3;
             this.label3.Text = "輸入驗證碼";
             // 
@@ -86,9 +90,10 @@
             // 
             this.lblchkNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(214)))), ((int)(((byte)(229)))));
             this.lblchkNum.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblchkNum.Location = new System.Drawing.Point(574, 545);
+            this.lblchkNum.Location = new System.Drawing.Point(879, 820);
+            this.lblchkNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblchkNum.Name = "lblchkNum";
-            this.lblchkNum.Size = new System.Drawing.Size(140, 50);
+            this.lblchkNum.Size = new System.Drawing.Size(210, 75);
             this.lblchkNum.TabIndex = 4;
             this.lblchkNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -96,10 +101,11 @@
             // 
             this.btn_changeChkNum.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_changeChkNum.BackgroundImage")));
             this.btn_changeChkNum.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_changeChkNum.Location = new System.Drawing.Point(740, 545);
+            this.btn_changeChkNum.Location = new System.Drawing.Point(1128, 820);
+            this.btn_changeChkNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_changeChkNum.Name = "btn_changeChkNum";
-            this.btn_changeChkNum.Size = new System.Drawing.Size(200, 50);
-            this.btn_changeChkNum.TabIndex = 5;
+            this.btn_changeChkNum.Size = new System.Drawing.Size(300, 75);
+            this.btn_changeChkNum.TabIndex = 4;
             this.btn_changeChkNum.Text = "換一個";
             this.btn_changeChkNum.UseVisualStyleBackColor = true;
             this.btn_changeChkNum.Click += new System.EventHandler(this.btn_changeChkNum_Click);
@@ -108,9 +114,10 @@
             // 
             this.btn_signIn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_signIn.BackgroundImage")));
             this.btn_signIn.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_signIn.Location = new System.Drawing.Point(571, 638);
+            this.btn_signIn.Location = new System.Drawing.Point(856, 957);
+            this.btn_signIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_signIn.Name = "btn_signIn";
-            this.btn_signIn.Size = new System.Drawing.Size(200, 50);
+            this.btn_signIn.Size = new System.Drawing.Size(300, 75);
             this.btn_signIn.TabIndex = 5;
             this.btn_signIn.Text = "登入";
             this.btn_signIn.UseVisualStyleBackColor = true;
@@ -120,10 +127,11 @@
             // 
             this.btn_signUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_signUp.BackgroundImage")));
             this.btn_signUp.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_signUp.Location = new System.Drawing.Point(353, 638);
+            this.btn_signUp.Location = new System.Drawing.Point(530, 957);
+            this.btn_signUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_signUp.Name = "btn_signUp";
-            this.btn_signUp.Size = new System.Drawing.Size(200, 50);
-            this.btn_signUp.TabIndex = 5;
+            this.btn_signUp.Size = new System.Drawing.Size(300, 75);
+            this.btn_signUp.TabIndex = 6;
             this.btn_signUp.Text = "註冊";
             this.btn_signUp.UseVisualStyleBackColor = true;
             this.btn_signUp.Click += new System.EventHandler(this.btn_signUp_Click);
@@ -132,36 +140,39 @@
             // 
             this.txtaccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txtaccount.Font = new System.Drawing.Font("微軟正黑體", 24F);
-            this.txtaccount.Location = new System.Drawing.Point(426, 404);
+            this.txtaccount.Location = new System.Drawing.Point(639, 606);
+            this.txtaccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtaccount.Name = "txtaccount";
-            this.txtaccount.Size = new System.Drawing.Size(300, 50);
-            this.txtaccount.TabIndex = 6;
+            this.txtaccount.Size = new System.Drawing.Size(448, 71);
+            this.txtaccount.TabIndex = 1;
             // 
             // txtpassword
             // 
             this.txtpassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txtpassword.Font = new System.Drawing.Font("微軟正黑體", 24F);
-            this.txtpassword.Location = new System.Drawing.Point(426, 472);
+            this.txtpassword.Location = new System.Drawing.Point(639, 708);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.PasswordChar = '●';
-            this.txtpassword.Size = new System.Drawing.Size(300, 50);
-            this.txtpassword.TabIndex = 6;
+            this.txtpassword.Size = new System.Drawing.Size(448, 71);
+            this.txtpassword.TabIndex = 2;
             // 
             // txtchkNum
             // 
             this.txtchkNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txtchkNum.Font = new System.Drawing.Font("微軟正黑體", 24F);
-            this.txtchkNum.Location = new System.Drawing.Point(414, 545);
+            this.txtchkNum.Location = new System.Drawing.Point(639, 820);
+            this.txtchkNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtchkNum.Name = "txtchkNum";
-            this.txtchkNum.Size = new System.Drawing.Size(140, 50);
-            this.txtchkNum.TabIndex = 6;
+            this.txtchkNum.Size = new System.Drawing.Size(208, 71);
+            this.txtchkNum.TabIndex = 3;
             // 
-            // Form1
+            // LogIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.ClientSize = new System.Drawing.Size(1076, 707);
+            this.ClientSize = new System.Drawing.Size(1614, 1060);
             this.Controls.Add(this.txtchkNum);
             this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.txtaccount);
@@ -173,7 +184,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "LogIn";
             this.Text = "LogIn";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

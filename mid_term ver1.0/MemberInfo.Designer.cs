@@ -54,6 +54,7 @@
             this.lb_ID = new System.Windows.Forms.Label();
             this.btn_reload = new System.Windows.Forms.Button();
             this.btn_phoneSearch = new System.Windows.Forms.Button();
+            this.btn_emailSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_allMemberList)).BeginInit();
             this.SuspendLayout();
@@ -318,6 +319,18 @@
             this.btn_phoneSearch.UseVisualStyleBackColor = true;
             this.btn_phoneSearch.Click += new System.EventHandler(this.btn_phoneSearch_Click);
             // 
+            // btn_emailSearch
+            // 
+            this.btn_emailSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_emailSearch.BackgroundImage")));
+            this.btn_emailSearch.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_emailSearch.Location = new System.Drawing.Point(15, 611);
+            this.btn_emailSearch.Name = "btn_emailSearch";
+            this.btn_emailSearch.Size = new System.Drawing.Size(200, 50);
+            this.btn_emailSearch.TabIndex = 15;
+            this.btn_emailSearch.Text = "信箱查詢";
+            this.btn_emailSearch.UseVisualStyleBackColor = true;
+            this.btn_emailSearch.Click += new System.EventHandler(this.btn_emailSearch_Click);
+            // 
             // MemberInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -343,6 +356,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.btn_emailSearch);
             this.Controls.Add(this.btn_phoneSearch);
             this.Controls.Add(this.btn_reload);
             this.Controls.Add(this.btn_clear);
@@ -385,5 +399,6 @@
         private System.Windows.Forms.Label lb_ID;
         private System.Windows.Forms.Button btn_reload;
         private System.Windows.Forms.Button btn_phoneSearch;
+        private System.Windows.Forms.Button btn_emailSearch;
     }
 }

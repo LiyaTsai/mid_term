@@ -32,6 +32,7 @@ namespace mid_term_ver1._0
 
         private void BuySweetPage_Load(object sender, EventArgs e)
         {
+            Console.WriteLine("buySweetPage");
             //連接momoDB
             scsb = new SqlConnectionStringBuilder();
             scsb.DataSource = @".";
@@ -42,7 +43,7 @@ namespace mid_term_ver1._0
             //甜點品項
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "select * from dessert where dessert_available = 1 and dessert_category != 'puff';";
+            string strSQL = "select * from dessert where dessert_available = 1 ;";
             SqlCommand cmd = new SqlCommand(strSQL, con);
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -125,9 +126,10 @@ namespace mid_term_ver1._0
             {
                 string product = (string)buysweets[1];
                 int price = (int)buysweets[2];
-                int amount = (int)buysweets[];
+                int amount = (int)buysweets[3];
                 string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
                 lbox_cartSweet.Items.Add(selected);
+                Console.Write(" "+(int)buysweets[0]);
             }
         }
 
