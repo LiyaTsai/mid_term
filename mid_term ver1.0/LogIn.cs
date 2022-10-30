@@ -28,6 +28,7 @@ namespace mid_term_ver1._0
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
+
             //驗證碼
             create_checkNum();
 
@@ -72,6 +73,7 @@ namespace mid_term_ver1._0
                     GlobalVar.G_user_info.Add("ID", Convert.ToInt32(reader3["member_ID"]));
                     GlobalVar.G_user_info.Add("name", reader3["member_name"].ToString());
                     GlobalVar.G_user_info.Add("phone", reader3["member_phone"].ToString());
+                    GlobalVar.G_user_info.Add("address", reader3["member_address".ToString()]);
                     Console.WriteLine(reader3["member_ID"]);
 
                     Console.WriteLine(reader3["member_ID"]);

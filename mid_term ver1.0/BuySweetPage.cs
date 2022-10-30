@@ -18,7 +18,7 @@ namespace mid_term_ver1._0
         SqlConnectionStringBuilder scsb;
         string strDBConnectionString = "";
         Dictionary<string, int> sweetProduct = new Dictionary<string, int>();
-        List<int> dID = new List<int>();
+        List<int> dID = new List<int>(); //[dessert][dessert_ID]
         public int dessertID = 0;
         public int myprice = 0;
         public int myamount = 1;
@@ -60,7 +60,19 @@ namespace mid_term_ver1._0
                 string kvpsp = kvp.Key + "         $" + kvp.Value;
                 lbox_product.Items.Add(kvpsp);
             }
+
+            //sweet
+            foreach (ArrayList buysweets in GlobalVar.G_sweet)
+            {
+                string product = (string)buysweets[1];
+                int price = (int)buysweets[2];
+                int amount = (int)buysweets[3];
+                string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
+                lbox_cartSweet.Items.Add(selected);
+            }
         }
+
+
         void cost()
         {
             if (lbox_product.SelectedIndex == -1)
@@ -129,7 +141,7 @@ namespace mid_term_ver1._0
                 int amount = (int)buysweets[3];
                 string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
                 lbox_cartSweet.Items.Add(selected);
-                Console.Write(" "+(int)buysweets[0]);
+                Console.Write("dessert_ID: " + (int)buysweets[0]);
             }
         }
 
