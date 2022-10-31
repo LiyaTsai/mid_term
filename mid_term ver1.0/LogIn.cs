@@ -39,6 +39,8 @@ namespace mid_term_ver1._0
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ToString();
 
+
+
         }
 
         void MemberLogInChk(out int b)
@@ -77,20 +79,20 @@ namespace mid_term_ver1._0
                     Console.WriteLine(reader3["member_ID"]);
 
                     Console.WriteLine(reader3["member_ID"]);
-                    MessageBox.Show("成功登入");
+                    //MessageBox.Show("成功登入");
                     b = 1;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Member密碼有誤");
+                    MessageBox.Show("會員密碼有誤");
                     clear();
                 }
                 reader3.Close();
             }            
             else
             {
-                MessageBox.Show("無此Member帳號");
+                MessageBox.Show("無此會員帳號");
                 clear();
             }
             reader2.Close();

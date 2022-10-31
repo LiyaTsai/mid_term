@@ -33,7 +33,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_title = new System.Windows.Forms.Label();
             this.btn_signup = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgv_allMemberList = new System.Windows.Forms.DataGridView();
@@ -53,8 +53,8 @@
             this.btn_clear = new System.Windows.Forms.Button();
             this.lb_ID = new System.Windows.Forms.Label();
             this.btn_reload = new System.Windows.Forms.Button();
-            this.btn_phoneSearch = new System.Windows.Forms.Button();
-            this.btn_emailSearch = new System.Windows.Forms.Button();
+            this.cbox_search = new System.Windows.Forms.ComboBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_allMemberList)).BeginInit();
             this.SuspendLayout();
@@ -99,23 +99,24 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "生日";
             // 
-            // label1
+            // lb_title
             // 
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 28F);
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(158, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(360, 60);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "　　　　會員資料";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_title.Font = new System.Drawing.Font("微軟正黑體", 28F);
+            this.lb_title.Image = ((System.Drawing.Image)(resources.GetObject("lb_title.Image")));
+            this.lb_title.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_title.Location = new System.Drawing.Point(158, 9);
+            this.lb_title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_title.Name = "lb_title";
+            this.lb_title.Size = new System.Drawing.Size(704, 78);
+            this.lb_title.TabIndex = 16;
+            this.lb_title.Text = "　　　　會員資料";
+            this.lb_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_signup
             // 
             this.btn_signup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_signup.BackgroundImage")));
             this.btn_signup.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_signup.Location = new System.Drawing.Point(590, 611);
+            this.btn_signup.Location = new System.Drawing.Point(599, 471);
             this.btn_signup.Name = "btn_signup";
             this.btn_signup.Size = new System.Drawing.Size(200, 50);
             this.btn_signup.TabIndex = 15;
@@ -139,7 +140,7 @@
             this.dgv_allMemberList.Location = new System.Drawing.Point(441, 107);
             this.dgv_allMemberList.Name = "dgv_allMemberList";
             this.dgv_allMemberList.RowTemplate.Height = 24;
-            this.dgv_allMemberList.Size = new System.Drawing.Size(564, 294);
+            this.dgv_allMemberList.Size = new System.Drawing.Size(564, 358);
             this.dgv_allMemberList.TabIndex = 26;
             this.dgv_allMemberList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_allMemberList_CellClick);
             // 
@@ -222,7 +223,7 @@
             // 
             this.btn_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_search.BackgroundImage")));
             this.btn_search.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_search.Location = new System.Drawing.Point(796, 611);
+            this.btn_search.Location = new System.Drawing.Point(590, 667);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(200, 50);
             this.btn_search.TabIndex = 15;
@@ -246,7 +247,7 @@
             // 
             this.btn_delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_delete.BackgroundImage")));
             this.btn_delete.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_delete.Location = new System.Drawing.Point(588, 667);
+            this.btn_delete.Location = new System.Drawing.Point(796, 611);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(200, 50);
             this.btn_delete.TabIndex = 15;
@@ -258,7 +259,7 @@
             // 
             this.lb_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
             this.lb_count.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_count.Location = new System.Drawing.Point(158, 107);
+            this.lb_count.Location = new System.Drawing.Point(172, 107);
             this.lb_count.Name = "lb_count";
             this.lb_count.Size = new System.Drawing.Size(263, 45);
             this.lb_count.TabIndex = 17;
@@ -278,7 +279,7 @@
             // 
             this.btn_clear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_clear.BackgroundImage")));
             this.btn_clear.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_clear.Location = new System.Drawing.Point(796, 555);
+            this.btn_clear.Location = new System.Drawing.Point(221, 596);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(200, 50);
             this.btn_clear.TabIndex = 15;
@@ -299,37 +300,32 @@
             // 
             this.btn_reload.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_reload.BackgroundImage")));
             this.btn_reload.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_reload.Location = new System.Drawing.Point(590, 555);
+            this.btn_reload.Location = new System.Drawing.Point(805, 471);
             this.btn_reload.Name = "btn_reload";
             this.btn_reload.Size = new System.Drawing.Size(200, 50);
             this.btn_reload.TabIndex = 15;
             this.btn_reload.Text = "重新載入";
             this.btn_reload.UseVisualStyleBackColor = true;
-            this.btn_reload.Click += new System.EventHandler(this.btn_clear_Click);
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
-            // btn_phoneSearch
+            // cbox_search
             // 
-            this.btn_phoneSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_phoneSearch.BackgroundImage")));
-            this.btn_phoneSearch.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_phoneSearch.Location = new System.Drawing.Point(221, 611);
-            this.btn_phoneSearch.Name = "btn_phoneSearch";
-            this.btn_phoneSearch.Size = new System.Drawing.Size(200, 50);
-            this.btn_phoneSearch.TabIndex = 15;
-            this.btn_phoneSearch.Text = "手機查詢";
-            this.btn_phoneSearch.UseVisualStyleBackColor = true;
-            this.btn_phoneSearch.Click += new System.EventHandler(this.btn_phoneSearch_Click);
+            this.cbox_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
+            this.cbox_search.Font = new System.Drawing.Font("微軟正黑體", 24F);
+            this.cbox_search.FormattingEnabled = true;
+            this.cbox_search.Location = new System.Drawing.Point(463, 667);
+            this.cbox_search.Name = "cbox_search";
+            this.cbox_search.Size = new System.Drawing.Size(121, 48);
+            this.cbox_search.TabIndex = 34;
             // 
-            // btn_emailSearch
+            // txt_search
             // 
-            this.btn_emailSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_emailSearch.BackgroundImage")));
-            this.btn_emailSearch.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_emailSearch.Location = new System.Drawing.Point(15, 611);
-            this.btn_emailSearch.Name = "btn_emailSearch";
-            this.btn_emailSearch.Size = new System.Drawing.Size(200, 50);
-            this.btn_emailSearch.TabIndex = 15;
-            this.btn_emailSearch.Text = "信箱查詢";
-            this.btn_emailSearch.UseVisualStyleBackColor = true;
-            this.btn_emailSearch.Click += new System.EventHandler(this.btn_emailSearch_Click);
+            this.txt_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
+            this.txt_search.Font = new System.Drawing.Font("微軟正黑體", 24F);
+            this.txt_search.Location = new System.Drawing.Point(33, 665);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(424, 50);
+            this.txt_search.TabIndex = 35;
             // 
             // MemberInfo
             // 
@@ -337,6 +333,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.txt_search);
+            this.Controls.Add(this.cbox_search);
             this.Controls.Add(this.dtp_birthday);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_point);
@@ -353,11 +351,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lb_ID);
             this.Controls.Add(this.lb_count);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_title);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_save);
-            this.Controls.Add(this.btn_emailSearch);
-            this.Controls.Add(this.btn_phoneSearch);
             this.Controls.Add(this.btn_reload);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_search);
@@ -378,7 +374,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_title;
         private System.Windows.Forms.Button btn_signup;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dgv_allMemberList;
@@ -398,7 +394,7 @@
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Label lb_ID;
         private System.Windows.Forms.Button btn_reload;
-        private System.Windows.Forms.Button btn_phoneSearch;
-        private System.Windows.Forms.Button btn_emailSearch;
+        private System.Windows.Forms.ComboBox cbox_search;
+        private System.Windows.Forms.TextBox txt_search;
     }
 }

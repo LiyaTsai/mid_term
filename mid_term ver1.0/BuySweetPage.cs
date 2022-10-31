@@ -112,6 +112,7 @@ namespace mid_term_ver1._0
             if (sweetchk)
             {//紀錄甜點
                 dessertID = dID[(lbox_product.SelectedIndex)];
+                //Console.WriteLine("\n dessertID: " + dessertID);
                 myproduct = sweetProduct.ElementAt(lbox_product.SelectedIndex).Key;
                 myprice = sweetProduct.ElementAt(lbox_product.SelectedIndex).Value;
                 myamount = Convert.ToInt32(num_productamount.Value);
@@ -182,9 +183,6 @@ namespace mid_term_ver1._0
                     break;
                 }
             }
-
-
-
         }
 
         private void btn_menu_Click(object sender, EventArgs e)

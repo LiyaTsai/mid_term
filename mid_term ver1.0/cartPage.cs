@@ -21,6 +21,12 @@ namespace mid_term_ver1._0
         int discount = 100;
         List<string> Flavor = new List<string>();
         //List<string> listPuffFlavor = new List<string>();
+        
+        int M_ID = (int)GlobalVar.G_user_info["ID"];
+        string PuffOID = "";
+        string SweetOID = "";
+
+
         public cartPage()
         {
             InitializeComponent();
@@ -52,8 +58,7 @@ namespace mid_term_ver1._0
                 int price = (int)buysweets[2];
                 int amount = (int)buysweets[3];
                 string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
-                lbox_cartSweet.Items.Add(selected);
-                
+                lbox_cartSweet.Items.Add(selected);                
             }
 
             lb_name.Text = GlobalVar.G_user_info["name"].ToString();
@@ -72,6 +77,8 @@ namespace mid_term_ver1._0
                 cbox_delivery.Items.Add(item);
             }
             cost_total(100);
+
+
         }
 
 
@@ -292,123 +299,206 @@ namespace mid_term_ver1._0
             cost_total(100);
         }
 
-        private void btn_order_Click(object sender, EventArgs e)
+        void create_order_id( out string order_id)
         {
-
             Random random = new Random();
             DateTime dateTime = DateTime.Now;
-            string order_id = "";
-            order_id = dateTime.Year.ToString() + dateTime.Month.ToString() + dateTime.Day.ToString() + dateTime.Hour.ToString() + dateTime.Minute.ToString() + dateTime.Second.ToString() + random.Next(1000 + 9999).ToString();
-            Console.WriteLine(order_id);
+            string _order_id = dateTime.Year.ToString() + dateTime.Month.ToString() + dateTime.Day.ToString() + dateTime.Hour.ToString() + dateTime.Minute.ToString() + dateTime.Second.ToString() + random.Next(1000 + 9999).ToString();
+            Console.WriteLine(_order_id);
+            order_id = _order_id;
+        }
+
+        void order_chk( out int a)
+        {
+            a = 0;
+            bool deliverychk = (cbox_delivery.SelectedIndex != -1) && (txt_address.Text != "");
+            bool paymentchk = (rbtn_cash.Checked = true) || (rbtn_linepay.Checked = true) || (rbtn_trans.Checked = true);
+            bool packagechk = (rbtn_basicPackage.Checked = true) || (rbtn_giftbag.Checked = true) || (rbtn_giftbox.Checked = true);
+            string chkmsg = "";
+            if(deliverychk)
+            {
+
+            }else
+            {
+                chkmsg += "請選擇取貨方式";
+            }
+            if(paymentchk)
+            { }
+            else
+            {
+                chkmsg += "請選擇付款方式";
+            }
+            if(packagechk)
+            {
+
+            }
+            else
+            {
+                chkmsg += "請選擇包裝";
+            }
+            if (chkmsg == "")
+            {
+                a = 1;
+            }
+        }
+
+        private void btn_order_Click(object sender, EventArgs e)
+        {
+            order_chk(out int a);
+            if(a == 1)
+            {
+                puffOrder();
+                dessertOrder();
+                create_order_id(out string order_id);
+
+                strDelivery(out string strdelivery);
+                strPayment(out string strpayment);
+                strPackage(out string strpackage);
+
+                SqlConnection con = new SqlConnection(strMyDBConnectionString);
+                con.Open();
+                Console.WriteLine("memberOrder");
+                string strSQL = @"insert memberOrder (memberOrder_ID, member_ID, memberOrder_delivery, memberOrder_address, memberOrder_payment, memberOrder_package, memberOrder_totalPrice ) values (@memberOrder_ID, @member_ID, @memberOrder_delivery, @memberOrder_address, @memberOrder_payment, @memberOrder_package, @memberOrder_totalPrice)";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                cmd.Parameters.AddWithValue("@memberOrder_ID", order_id);
+                cmd.Parameters.AddWithValue("@member_ID", M_ID);
+                cmd.Parameters.AddWithValue("@memberOrder_delivery", strdelivery);
+                cmd.Parameters.AddWithValue("@memberOrder_address", txt_address.Text);
+                cmd.Parameters.AddWithValue("@memberOrder_payment", strpayment);
+                cmd.Parameters.AddWithValue("@memberOrder_package", strpackage);
+                cmd.Parameters.AddWithValue("@memberOrder_totalPrice", lb_total.Text);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Close();
+                con.Close();
+            }
+        }
+
+        void strDelivery(out string strdelivery)
+        {
+            string _strdelivery = "";
+            if (cbox_delivery.SelectedIndex == 0)
+            {
+                _strdelivery = "到店自取";
+            }
+            if (cbox_delivery.SelectedIndex == 1)
+            {
+                _strdelivery = "宅配到府$100";
+            }
+            if (cbox_delivery.SelectedIndex == 2)
+            {
+                _strdelivery = "冷凍宅配$200";
+            }
+            strdelivery = _strdelivery;
+        }
+
+        void strPayment(out string strpayment)
+        {
+            string _strpayment = "";
+            if (rbtn_cash.Checked == true)
+            {
+                _strpayment = "付現";
+            }
+            if (rbtn_linepay.Checked == true)
+            {
+                _strpayment = "Line Pay";
+            }
+            if (rbtn_trans.Checked == true)
+            {
+                _strpayment = "匯款";
+            }
+            strpayment = _strpayment;
+        }
+
+        void strPackage(out string strpackage)
+        {
+            string _strpackage = "";
+            if (rbtn_basicPackage.Checked == true)
+            {
+                _strpackage = "基本包裝";
+            }
+            if (rbtn_giftbag.Checked == true)
+            {
+                _strpackage = "禮物袋";
+            }
+            if (rbtn_giftbox.Checked == true)
+            {
+                _strpackage = "禮物盒";
+            }
+            strpackage = _strpackage;
+        }
+
+
+        void puffOrder()
+        {
+            create_order_id(out string order_id);
 
             if (lbox_cartPuff.Items.Count > 0)
             {
-                //先把泡芙放到甜點裡
-                Console.WriteLine("there is puff in cart");
-                ArrayList buySweets = new ArrayList();
-                buySweets.Add(101);
-                buySweets.Add("泡芙(綜合)");
-                buySweets.Add(400);
-                buySweets.Add(lbox_cartPuff.Items.Count);
-                GlobalVar.G_sweet.Add(buySweets);
-
-
                 foreach (ArrayList BuyPuff in GlobalVar.G_puff)
                 {
                     string Flavor = (string)BuyPuff[0];
-                    Console.WriteLine("foreach:" + Flavor);
+                    int PID = (int)BuyPuff[2];
+                    int puffOrder_dis_price = 400 * discount / 100;
+
+                    //Console.WriteLine("foreach:" + Flavor);
                     SqlConnection con = new SqlConnection(strMyDBConnectionString);
                     con.Open();
                     Console.WriteLine("Con.open");
-                    string strSQL = @"select * from puffFlavor where puffFlavor_name = '@myflavor'";
+                    string strSQL = "insert puffOrder( puffOrder_ID, member_ID, puffFlavor_ID, puffOrder_flavor, puffOrder_dis_price) values ( @puffOrder_ID, @member_ID, @puffFlavor_ID, @puffOrder_flavor, @puffOrder_dis_price)";
                     SqlCommand cmd = new SqlCommand(strSQL, con);
-                    cmd.Parameters.AddWithValue("@myflavor", Flavor);
+                    cmd.Parameters.AddWithValue("@puffOrder_ID", order_id);
+                    cmd.Parameters.AddWithValue("@puffOrder_flavor", Flavor);
+                    cmd.Parameters.AddWithValue("@member_ID", M_ID);
+                    cmd.Parameters.AddWithValue("@puffFlavor_ID", PID);
+                    cmd.Parameters.AddWithValue("@puffOrder_dis_price", puffOrder_dis_price);
                     SqlDataReader reader = cmd.ExecuteReader();
-                    
 
-                    while (reader.Read())
-                    {
-                        PID = Convert.ToInt32(reader["puffFlavor_ID"]);
-                        Console.WriteLine( "PID: " + PID);
-                    }
                     reader.Close();
                     con.Close();
                 }
             }
+        }
 
+        void dessertOrder()
+        {
+            create_order_id(out string order_id);
             if (lbox_cartSweet.Items.Count > 0)
             {
                 Console.WriteLine("there is sweets in cart");
-                
 
                 foreach (ArrayList BuySweet in GlobalVar.G_sweet)
                 {
-                    
+
                     int SweetID = (int)BuySweet[0];
-                    int d_price = (int)BuySweet[2] * discount;
+                    int d_price = (int)BuySweet[2] * discount / 100;
+                    int D_amount = (int)BuySweet[3];
                     Console.WriteLine("foreach sweetID: " + SweetID);
                     Console.WriteLine("foreach price: " + d_price);
 
                     SqlConnection con = new SqlConnection(strMyDBConnectionString);
                     con.Open();
                     Console.WriteLine("Con.open");
-                    string strSQL = @"insert dessertOrder( dessertOrder_ID, member_ID, dessert_ID, dessert_amount, dessert_price, puffFlavor_ID, puffFlavor) values ( @dessertOrder_ID, @member_ID, @dessert_ID, @dessert_amount, @dessert_price, @puffFlavor_ID, @puffFlavor)";
+                    string strSQL = @"insert dessertOrder( dessertOrder_ID, member_ID, dessert_ID, dessert_amount, dessert_dis_price) values ( @dessertOrder_ID, @member_ID, @dessert_ID, @dessert_amount, @dessert_dis_price)";
                     SqlCommand cmd = new SqlCommand(strSQL, con);
                     cmd.Parameters.AddWithValue("@dessertOrder_ID", order_id);
-                    cmd.Parameters.AddWithValue("@member_ID", GlobalVar.G_user_info[0]);
+                    cmd.Parameters.AddWithValue("@member_ID", M_ID);
                     cmd.Parameters.AddWithValue("@dessert_ID", SweetID);
-                    cmd.Parameters.AddWithValue("@dessert_amount", GlobalVar.G_user_info[3]);
-                    cmd.Parameters.AddWithValue("@dessert_price", d_price);
-                    cmd.Parameters.AddWithValue("@puffFlavor_ID", PID);
-                    //cmd.Parameters.AddWithValue("@puffFlavor", );
-
+                    cmd.Parameters.AddWithValue("@dessert_amount", D_amount);
+                    cmd.Parameters.AddWithValue("@dessert_dis_price", d_price);
+                    //cmd.Parameters.AddWithValue("@puffFlavor_ID", 0);                    
                     SqlDataReader reader = cmd.ExecuteReader();
 
+                    while (reader.Read())
+                    {
+
+                    }
                     reader.Close();
                     con.Close();
                 }
             }
-
-
-            /*
-            string strSQL2 = @"insert dessertOrder( dessertOrder_ID, member_ID, dessert_ID, dessert_price, puffFlavor_ID, puffFlavor) values ( '@dessertOrder_ID', @member_ID, @dessert_ID, @dessert_price, @puffFlavor_ID, @puffFlavor)";
-                        SqlCommand cmd2 = new SqlCommand(strSQL2, con);
-                        cmd2.Parameters.AddWithValue("@dessertOrder_ID", random);
-                        cmd2.Parameters.AddWithValue("@member_ID", GlobalVar.G_user_info[0]);
-                        cmd2.Parameters.AddWithValue("@dessert_ID", );
-                        cmd2.Parameters.AddWithValue("@dessertOrder_ID", Flavor);
-                        Console.WriteLine("com:" + Flavor);
-                        SqlDataReader reader2 = cmd2.ExecuteReader();
-
-                        int rows = cmd2.ExecuteNonQuery();
-                        MessageBox.Show("加入" + rows + "盒泡芙", "訂單");
-                        reader2.Close();
-                        con.Close();
-                    }
-
-                }
-            }*/
-            
-            
-
-            /*SqlConnection con = new SqlConnection(strMyDBConnectionString);
-            con.Open();
-            string strSQL = "insert dessertOrder( dessertOrder_ID, member_ID, dessert_ID, dessert_price,) values ( @dessertOrder_ID, @member_ID, @dessert_ID, @dessert_price )";
-            SqlCommand cmd = new SqlCommand(strSQL, con);
-            cmd.Parameters.AddWithValue("@dessertOrder_ID", order_id);
-            cmd.Parameters.AddWithValue("@member_ID", GlobalVar.G_user_info[0]);
-            cmd.Parameters.AddWithValue("@dessert_ID", GlobalVar.G_sweet[0]);
-            cmd.Parameters.AddWithValue("@dessert_price", GlobalVar.G_sweet[2]);
-
-
-
-            int rows = cmd.ExecuteNonQuery();
-            MessageBox.Show("資料儲存成功, 影響" + rows + "筆資料", "註冊成功");
-
-            //MessageBox.Show("註冊成功，請登入會員","註冊成功");
-
-            con.Close();       */    
-
         }
+
+
     }
 }

@@ -73,6 +73,7 @@ namespace mid_term_ver1._0
                 myflavorCount++;
             }
 
+            Console.WriteLine(myflavor);
             if ((ckb_chocolate.Checked == true) && (ckb_earlgrey.Checked == true) && (ckb_strawberrycheese.Checked == true) && (ckb_vanilla.Checked == true))
             {
                 MessageBox.Show("至多選3種口味喔");
@@ -85,18 +86,26 @@ namespace mid_term_ver1._0
             else
             {
                 //甜點品項
+                int PID = 0;
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
-                string strSQL = @"select * from puffFlavor where puffFlavor_name = @myflavor ;";
+                Console.WriteLine(myflavor);
+                string strSQL = @"select * from puffFlavor where puffFlavor_name = @myflavor ;"; 
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@myflavor", myflavor);
                 SqlDataReader reader = cmd.ExecuteReader();
-                GlobalVar.G_puff_ID.Add(Convert.ToInt32( reader["puffFlavor_ID"]));
+                while (reader.Read())
+                {
+                    PID = (int)reader["puffFlavor_ID"];
+                    //當目前沒有資料時，嘗試讀取無效
+                }
+                Console.WriteLine("PID: "　+ PID);
 
                 //儲存泡芙口味到global var
                 Console.WriteLine(myflavor);
                 buypuff.Add(myflavor);
                 buypuff.Add(myflavorCount);
+                buypuff.Add(PID);
                 GlobalVar.G_puff.Add(buypuff);
 
                 //計價 
