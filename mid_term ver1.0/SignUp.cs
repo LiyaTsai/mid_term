@@ -89,10 +89,11 @@ namespace mid_term_ver1._0
                     Console.WriteLine("新會員創建成功");
 
                     int rows = cmd.ExecuteNonQuery();
-                    MessageBox.Show("資料儲存成功, 影響" + rows + "筆資料", "註冊成功");
-
-                    //MessageBox.Show("註冊成功，請登入會員","註冊成功");
-
+                    if (rows == 1)
+                    {
+                        MessageBox.Show("註冊成功，已新增" + rows + "名會員\n頁面將關閉", "註冊成功");
+                    }
+                    
                 }
                 con.Close();
             }

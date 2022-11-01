@@ -57,7 +57,7 @@ namespace mid_term_ver1._0
 
             foreach (KeyValuePair<string, int> kvp in sweetProduct)
             {
-                string kvpsp = kvp.Key + "         $" + kvp.Value;
+                string kvpsp = kvp.Key.PadRight(14, '　') + "$" + kvp.Value;
                 lbox_product.Items.Add(kvpsp);
             }
 
@@ -67,7 +67,8 @@ namespace mid_term_ver1._0
                 string product = (string)buysweets[1];
                 int price = (int)buysweets[2];
                 int amount = (int)buysweets[3];
-                string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
+                string total = "總價" + String.Format("{0}", price * amount).PadLeft(5, ' ');
+                string selected = string.Format("{0}數量{1}   {2}", product, amount, total);
                 lbox_cartSweet.Items.Add(selected);
             }
         }
@@ -137,10 +138,11 @@ namespace mid_term_ver1._0
             lbox_cartSweet.Items.Clear();
             foreach (ArrayList buysweets in GlobalVar.G_sweet)
             {
-                string product = (string)buysweets[1];
+                string product = (string)buysweets[1].ToString().PadRight(14,'　');
                 int price = (int)buysweets[2];
-                int amount = (int)buysweets[3];
-                string selected = string.Format("{0} 數量{1}  總價{2}", product, amount, price * amount);
+                string amount = buysweets[3].ToString().PadRight(4,' ');
+                string total = "總價" + String.Format("{0}", price * Convert.ToInt32( amount)).PadLeft(4,' ');
+                string selected = string.Format("{0}數量{1}   {2}", product, amount, total);
                 lbox_cartSweet.Items.Add(selected);
                 Console.Write("dessert_ID: " + (int)buysweets[0]);
             }
@@ -193,8 +195,38 @@ namespace mid_term_ver1._0
 
         private void btn_goToCart_Click(object sender, EventArgs e)
         {
-            cartPage cartPage = new cartPage();
-            cartPage.ShowDialog();
+            while (true)
+            {
+                bool SweetToCart = (lbox_product.SelectedIndex == -1);
+
+                if (SweetToCart == false)
+                {
+                    DialogResult R;
+                    R = MessageBox.Show("選擇的甜點似乎未加入購物車～\n是否要加入購物車", "購物車確認", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (R == DialogResult.Yes)
+                    {
+                        btn_addsweet_Click(null, null);
+                    }
+                    else
+                    {
+                        sweet_choice_clean();
+                    }
+                }
+                if (SweetToCart)
+                {
+                    cartPage cartPage = new cartPage();
+                    cartPage.ShowDialog();
+                    this.Close();
+
+                    break;
+                }
+            }
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

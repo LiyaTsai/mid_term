@@ -28,12 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgv_order = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_order)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgv_order
+            // 
+            this.dgv_order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_order.Location = new System.Drawing.Point(207, 130);
+            this.dgv_order.Name = "dgv_order";
+            this.dgv_order.RowHeadersWidth = 62;
+            this.dgv_order.RowTemplate.Height = 31;
+            this.dgv_order.Size = new System.Drawing.Size(1240, 457);
+            this.dgv_order.TabIndex = 0;
+            // 
+            // Order
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1512, 1094);
+            this.Controls.Add(this.dgv_order);
+            this.Name = "Order";
             this.Text = "Order";
+            this.Load += new System.EventHandler(this.Order_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_order)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgv_order;
     }
 }

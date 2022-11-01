@@ -23,6 +23,7 @@ namespace mid_term_ver1._0
             LogIn logIn = new LogIn();
             logIn.ShowDialog();
             CenterToScreen();
+
         }
 
         private void lb_goBuySweetPage_Click(object sender, EventArgs e)

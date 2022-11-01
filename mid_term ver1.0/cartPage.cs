@@ -81,8 +81,6 @@ namespace mid_term_ver1._0
 
         }
 
-
-
         void cost_total(int a)
         {//記總價
 
@@ -299,15 +297,6 @@ namespace mid_term_ver1._0
             cost_total(100);
         }
 
-        void create_order_id( out string order_id)
-        {
-            Random random = new Random();
-            DateTime dateTime = DateTime.Now;
-            string _order_id = dateTime.Year.ToString() + dateTime.Month.ToString() + dateTime.Day.ToString() + dateTime.Hour.ToString() + dateTime.Minute.ToString() + dateTime.Second.ToString() + random.Next(1000 + 9999).ToString();
-            Console.WriteLine(_order_id);
-            order_id = _order_id;
-        }
-
         void order_chk( out int a)
         {
             a = 0;
@@ -347,9 +336,14 @@ namespace mid_term_ver1._0
             order_chk(out int a);
             if(a == 1)
             {
+                DateTime dateTime = DateTime.Now;
+                string order_id = dateTime.ToString("yyyyMMddHHmmssff");
+                Random rndguid = new Random(Guid.NewGuid().GetHashCode());
+                order_id = order_id + rndguid.Next(1000, 9999).ToString();
+                GlobalVar.G_order_id = order_id;
+
                 puffOrder();
                 dessertOrder();
-                create_order_id(out string order_id);
 
                 strDelivery(out string strdelivery);
                 strPayment(out string strpayment);
@@ -369,9 +363,15 @@ namespace mid_term_ver1._0
                 cmd.Parameters.AddWithValue("@memberOrder_totalPrice", lb_total.Text);
 
                 SqlDataReader reader = cmd.ExecuteReader();
+                if(reader.Read())
+                {
+                    MessageBox.Show("訂購完成");
+                    btn_RemoveAll_Click(null, null);
+                }
                 reader.Close();
                 con.Close();
             }
+            this.Close();
         }
 
         void strDelivery(out string strdelivery)
@@ -431,7 +431,7 @@ namespace mid_term_ver1._0
 
         void puffOrder()
         {
-            create_order_id(out string order_id);
+            string order_id = GlobalVar.G_order_id;
 
             if (lbox_cartPuff.Items.Count > 0)
             {
@@ -462,7 +462,7 @@ namespace mid_term_ver1._0
 
         void dessertOrder()
         {
-            create_order_id(out string order_id);
+            string order_id = GlobalVar.G_order_id;
             if (lbox_cartSweet.Items.Count > 0)
             {
                 Console.WriteLine("there is sweets in cart");

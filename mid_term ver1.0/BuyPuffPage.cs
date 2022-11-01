@@ -166,6 +166,7 @@ namespace mid_term_ver1._0
             }
         }
 
+        
         private void btn_menu_Click(object sender, EventArgs e)
         {
             Menu menu = new Menu();
@@ -174,8 +175,34 @@ namespace mid_term_ver1._0
 
         private void btn_goToCart_Click(object sender, EventArgs e)
         {
-            cartPage cartPage = new cartPage();
-            cartPage.ShowDialog();
+            while (true)
+            {
+                bool PuffToCart = ((ckb_chocolate.Checked == false) && (ckb_earlgrey.Checked == false) && (ckb_strawberrycheese.Checked == false) && (ckb_vanilla.Checked == false));
+
+                if (PuffToCart == false)
+                {
+                    DialogResult R;
+                    R = MessageBox.Show("勾選的泡芙似乎未加入購物車～\n是否要加入購物車", "購物車確認", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (R == DialogResult.Yes)
+                    {
+                        btn_addpuff_Click(null, null);
+                    }
+                    else
+                    {
+                        puff_rbtn_clean();
+                    }
+                }
+
+                if (PuffToCart)
+                {
+                    //轉跳到甜點
+                    cartPage cartPage = new cartPage();
+                    cartPage.ShowDialog();
+                    this.Close();
+
+                    break;
+                }
+            }
         }
     }
 }

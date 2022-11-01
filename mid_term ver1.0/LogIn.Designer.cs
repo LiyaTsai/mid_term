@@ -47,7 +47,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(597, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(459, 520);
             this.pictureBox1.TabIndex = 0;
@@ -102,7 +102,7 @@
             this.btn_changeChkNum.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_changeChkNum.BackgroundImage")));
             this.btn_changeChkNum.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn_changeChkNum.Location = new System.Drawing.Point(1110, 792);
-            this.btn_changeChkNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_changeChkNum.Margin = new System.Windows.Forms.Padding(4);
             this.btn_changeChkNum.Name = "btn_changeChkNum";
             this.btn_changeChkNum.Size = new System.Drawing.Size(300, 75);
             this.btn_changeChkNum.TabIndex = 4;
@@ -115,7 +115,7 @@
             this.btn_signIn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_signIn.BackgroundImage")));
             this.btn_signIn.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn_signIn.Location = new System.Drawing.Point(718, 894);
-            this.btn_signIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_signIn.Margin = new System.Windows.Forms.Padding(4);
             this.btn_signIn.Name = "btn_signIn";
             this.btn_signIn.Size = new System.Drawing.Size(300, 75);
             this.btn_signIn.TabIndex = 5;
@@ -128,7 +128,7 @@
             this.btn_signUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_signUp.BackgroundImage")));
             this.btn_signUp.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn_signUp.Location = new System.Drawing.Point(1301, 18);
-            this.btn_signUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_signUp.Margin = new System.Windows.Forms.Padding(4);
             this.btn_signUp.Name = "btn_signUp";
             this.btn_signUp.Size = new System.Drawing.Size(300, 75);
             this.btn_signUp.TabIndex = 6;
@@ -141,7 +141,7 @@
             this.txtaccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txtaccount.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txtaccount.Location = new System.Drawing.Point(645, 602);
-            this.txtaccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtaccount.Margin = new System.Windows.Forms.Padding(4);
             this.txtaccount.Name = "txtaccount";
             this.txtaccount.Size = new System.Drawing.Size(448, 71);
             this.txtaccount.TabIndex = 1;
@@ -151,7 +151,7 @@
             this.txtpassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txtpassword.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txtpassword.Location = new System.Drawing.Point(645, 696);
-            this.txtpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.PasswordChar = '●';
             this.txtpassword.Size = new System.Drawing.Size(448, 71);
@@ -162,7 +162,7 @@
             this.txtchkNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(233)))), ((int)(((byte)(239)))));
             this.txtchkNum.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txtchkNum.Location = new System.Drawing.Point(645, 792);
-            this.txtchkNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtchkNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtchkNum.Name = "txtchkNum";
             this.txtchkNum.Size = new System.Drawing.Size(208, 71);
             this.txtchkNum.TabIndex = 3;
@@ -184,7 +184,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LogIn";
             this.Text = "LogIn";
             this.Load += new System.EventHandler(this.Form1_Load_1);

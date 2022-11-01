@@ -59,7 +59,7 @@ namespace mid_term_ver1._0
             while (reader.Read())
             {
                 listId.Add((int)reader["dessert_ID"]);
-                listPname.Add(reader["dessert_name"].ToString());
+                listPname.Add(reader["dessert_name"].ToString().PadRight(10,'　'));
                 listPrice.Add((int)reader["dessert_price"]);
                 listPdesc.Add(reader["dessert_description"].ToString());
                 image_name = reader["dessert_image"].ToString();
@@ -115,7 +115,7 @@ namespace mid_term_ver1._0
                 item.Font = new Font("微軟正黑體", 12, FontStyle.Regular);
                 item.Text = listId[i].ToString();
                 item.SubItems.Add(listPname[i]);
-                item.SubItems.Add(listPrice[i].ToString());
+                item.SubItems.Add(listPrice[i].ToString().PadLeft(4,' '));
                 item.SubItems.Add(listPdesc[i].ToString());
                 item.Tag = listId[i];
 

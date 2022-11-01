@@ -24,8 +24,10 @@ namespace mid_term_ver1._0
         
         public static ArrayList G_sweet = new ArrayList();
         //0(dessertID); 1(myproduct); 2(myprice); 3(myamount);
-        
+
         //public static ArrayList G_dessert = new ArrayList ();//0
+
+        public static string G_order_id = "";
 
     }
 }
