@@ -14,7 +14,8 @@ namespace mid_term_ver1._0
     public partial class OrderMember : Form
     {
         SqlConnectionStringBuilder scsb;
-        string strDBConnectionString = ""; 
+        string strDBConnectionString = "";
+        int MID = (int)GlobalVar.G_user_info["ID"];
         public OrderMember()
         {
             InitializeComponent();
@@ -34,10 +35,9 @@ namespace mid_term_ver1._0
 
         void allOrderList()
         {
-            string MID = GlobalVar.G_user_info["ID"].ToString();
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "select mo.memberOrder_ID as '訂單編號', mo.member_ID as '會員編號', mo.memberOrder_delivery as '取貨方式', mo.memberOrder_address as '地址', mo.memberOrder_payment as '付款方式' , mo.memberOrder_package as '包裝', do.dessert_ID as '甜點品項編號' ,po.puffFlavor_ID as '泡芙品項編號', mo.memberOrder_totalPrice as '訂單總價' from memberOrder mo full JOIN dessertOrder do on mo.memberOrder_ID = do.dessertOrder_ID full JOIN puffOrder po on mo.memberOrder_ID = po.puffOrder_ID where (mo.member_ID = @MID) and (do.dessert_ID > 0 or po.puffFlavor_ID > 0)";
+            string strSQL = "select mo.memberOrder_ID as '訂單編號', mo.memberOrder_delivery as '取貨方式', mo.memberOrder_address as '地址', mo.memberOrder_payment as '付款方式' , mo.memberOrder_package as '包裝', mo.memberOrder_totalPrice as '訂單總價' from memberOrder mo full JOIN dessertOrder do on mo.memberOrder_ID = do.dessertOrder_ID full JOIN puffOrder po on mo.memberOrder_ID = po.puffOrder_ID where (mo.member_ID = @MID) and (do.dessert_ID > 0 or po.puffFlavor_ID > 0)";
             SqlCommand cmd = new SqlCommand(strSQL, con);
             cmd.Parameters.AddWithValue("@MID", MID);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -51,5 +51,49 @@ namespace mid_term_ver1._0
             reader.Close();
             con.Close();
         }
+
+        /*private void dgv_order_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string strSelectedID = dgv_order.Rows[e.RowIndex].Cells[0].Value.ToString();
+                int intSelID = 0;
+                bool isID = Int32.TryParse(strSelectedID, out intSelID);
+
+                if (isID)
+                {
+                    SqlConnection con = new SqlConnection(strDBConnectionString);
+                    con.Open();
+                    string strSQL = "select * from memberOrder mo full JOIN dessertOrder do on mo.memberOrder_ID = do.dessertOrder_ID full JOIN puffOrder po on mo.memberOrder_ID = po.puffOrder_ID JOIN dessert d on do.dessert_ID = d.dessert_ID　where(mo.memberOrder_ID = @SearchID)　";
+                    SqlCommand cmd = new SqlCommand(strSQL, con);
+                    cmd.Parameters.AddWithValue("@SearchID", intSelID);
+                    cmd.Parameters.AddWithValue("@MID", MID);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    Console.WriteLine(reader.Read());
+
+                    while (reader.Read())
+                    {
+                            string dd = "";
+                            string pd = "";
+                            lb_ID.Text = reader["mo.memberOrder_ID"].ToString();
+                            string dName = reader["d.dessert_name"].ToString();
+                            string dAmount = (reader["do.dessert_amount"]).ToString();
+                            int dPrice = Convert.ToInt32(reader["do.dessert_dis_price"]);
+                            string pName = reader["po.puffOrder_flavor"].ToString();
+                            int pPrice = Convert.ToInt32(reader["po.puffOrder_dis_price"]);
+
+                            dd = String.Format("{0}數量{1}價格{2}", dName.PadRight(13, '　'), dAmount.PadRight(3, ' '), dPrice);
+                            pd = String.Format("{0}價格{1}", pName.PadRight(16, ' '), dPrice);
+
+                            lbox_order.Items.Add(dd);
+                            lbox_order.Items.Add(pd);
+                        Console.WriteLine(dd+"\n"+pd);
+                    }
+
+                    reader.Close();
+                    con.Close();
+                }
+            }
+        }*/
     }
 }

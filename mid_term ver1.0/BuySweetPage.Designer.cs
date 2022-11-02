@@ -75,7 +75,7 @@
             // num_productamount
             // 
             this.num_productamount.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.num_productamount.Location = new System.Drawing.Point(335, 650);
+            this.num_productamount.Location = new System.Drawing.Point(335, 623);
             this.num_productamount.Maximum = new decimal(new int[] {
             99,
             0,
@@ -95,9 +95,9 @@
             // 
             this.btn_goToCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_goToCart.BackgroundImage")));
             this.btn_goToCart.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.btn_goToCart.Location = new System.Drawing.Point(1215, 968);
+            this.btn_goToCart.Location = new System.Drawing.Point(1255, 968);
             this.btn_goToCart.Name = "btn_goToCart";
-            this.btn_goToCart.Size = new System.Drawing.Size(285, 80);
+            this.btn_goToCart.Size = new System.Drawing.Size(245, 80);
             this.btn_goToCart.TabIndex = 27;
             this.btn_goToCart.Text = "前往購物車";
             this.btn_goToCart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -108,9 +108,9 @@
             // 
             this.btn_menu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_menu.BackgroundImage")));
             this.btn_menu.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.btn_menu.Location = new System.Drawing.Point(957, 167);
+            this.btn_menu.Location = new System.Drawing.Point(1255, 166);
             this.btn_menu.Name = "btn_menu";
-            this.btn_menu.Size = new System.Drawing.Size(285, 80);
+            this.btn_menu.Size = new System.Drawing.Size(245, 80);
             this.btn_menu.TabIndex = 28;
             this.btn_menu.Text = "甜點實拍照片";
             this.btn_menu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -121,7 +121,7 @@
             // 
             this.btn_addsweet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_addsweet.BackgroundImage")));
             this.btn_addsweet.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.btn_addsweet.Location = new System.Drawing.Point(975, 652);
+            this.btn_addsweet.Location = new System.Drawing.Point(939, 613);
             this.btn_addsweet.Name = "btn_addsweet";
             this.btn_addsweet.Size = new System.Drawing.Size(285, 80);
             this.btn_addsweet.TabIndex = 29;
@@ -136,7 +136,7 @@
             this.lbox_product.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbox_product.FormattingEnabled = true;
             this.lbox_product.ItemHeight = 54;
-            this.lbox_product.Location = new System.Drawing.Point(284, 253);
+            this.lbox_product.Location = new System.Drawing.Point(265, 225);
             this.lbox_product.Name = "lbox_product";
             this.lbox_product.Size = new System.Drawing.Size(958, 382);
             this.lbox_product.TabIndex = 26;
@@ -146,9 +146,9 @@
             // 
             this.lb_subtotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(206)))));
             this.lb_subtotal.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.lb_subtotal.Location = new System.Drawing.Point(790, 652);
+            this.lb_subtotal.Location = new System.Drawing.Point(779, 624);
             this.lb_subtotal.Name = "lb_subtotal";
-            this.lb_subtotal.Size = new System.Drawing.Size(165, 38);
+            this.lb_subtotal.Size = new System.Drawing.Size(152, 38);
             this.lb_subtotal.TabIndex = 19;
             this.lb_subtotal.Text = "0";
             this.lb_subtotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,7 +157,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.label8.Location = new System.Drawing.Point(689, 652);
+            this.label8.Location = new System.Drawing.Point(686, 625);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 36);
             this.label8.TabIndex = 20;
@@ -167,9 +167,9 @@
             // 
             this.lb_total1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(206)))));
             this.lb_total1.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.lb_total1.Location = new System.Drawing.Point(1311, 920);
+            this.lb_total1.Location = new System.Drawing.Point(1255, 907);
             this.lb_total1.Name = "lb_total1";
-            this.lb_total1.Size = new System.Drawing.Size(189, 38);
+            this.lb_total1.Size = new System.Drawing.Size(245, 38);
             this.lb_total1.TabIndex = 21;
             this.lb_total1.Text = "0";
             this.lb_total1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -178,7 +178,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.label7.Location = new System.Drawing.Point(1206, 920);
+            this.label7.Location = new System.Drawing.Point(1255, 871);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 36);
             this.label7.TabIndex = 22;
@@ -188,7 +188,7 @@
             // 
             this.lb_unitprice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(206)))));
             this.lb_unitprice.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.lb_unitprice.Location = new System.Drawing.Point(563, 651);
+            this.lb_unitprice.Location = new System.Drawing.Point(553, 624);
             this.lb_unitprice.Name = "lb_unitprice";
             this.lb_unitprice.Size = new System.Drawing.Size(118, 38);
             this.lb_unitprice.TabIndex = 23;
@@ -199,7 +199,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.label5.Location = new System.Drawing.Point(463, 652);
+            this.label5.Location = new System.Drawing.Point(459, 625);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 36);
             this.label5.TabIndex = 24;
@@ -209,7 +209,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Yu Gothic", 14F);
-            this.label4.Location = new System.Drawing.Point(259, 652);
+            this.label4.Location = new System.Drawing.Point(259, 625);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 36);
             this.label4.TabIndex = 25;
@@ -220,9 +220,9 @@
             this.lbox_cartSweet.Font = new System.Drawing.Font("Yu Gothic UI", 20F);
             this.lbox_cartSweet.FormattingEnabled = true;
             this.lbox_cartSweet.ItemHeight = 54;
-            this.lbox_cartSweet.Location = new System.Drawing.Point(242, 754);
+            this.lbox_cartSweet.Location = new System.Drawing.Point(265, 720);
             this.lbox_cartSweet.Name = "lbox_cartSweet";
-            this.lbox_cartSweet.Size = new System.Drawing.Size(958, 274);
+            this.lbox_cartSweet.Size = new System.Drawing.Size(958, 328);
             this.lbox_cartSweet.TabIndex = 31;
             // 
             // button1
