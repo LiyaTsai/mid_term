@@ -37,5 +37,11 @@ namespace mid_term_ver1._0
             BuyPuffPage buyPuffPage = new BuyPuffPage();
             buyPuffPage.Show();
         }
+
+        private void lb_orderlist_Click(object sender, EventArgs e)
+        {
+            OrderMember orderMember = new OrderMember();
+            orderMember.Show();
+        }
     }
 }

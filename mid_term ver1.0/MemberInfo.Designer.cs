@@ -48,7 +48,6 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
-            this.lb_count = new System.Windows.Forms.Label();
             this.lable134 = new System.Windows.Forms.Label();
             this.btn_clear = new System.Windows.Forms.Button();
             this.lb_ID = new System.Windows.Forms.Label();
@@ -114,13 +113,14 @@
             this.lb_title.TabIndex = 16;
             this.lb_title.Text = "　　　　會員資料";
             this.lb_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_title.Click += new System.EventHandler(this.lb_title_Click);
             // 
             // btn_signup
             // 
             this.btn_signup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_signup.BackgroundImage")));
             this.btn_signup.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn_signup.Location = new System.Drawing.Point(1208, 705);
-            this.btn_signup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_signup.Margin = new System.Windows.Forms.Padding(4);
             this.btn_signup.Name = "btn_signup";
             this.btn_signup.Size = new System.Drawing.Size(300, 75);
             this.btn_signup.TabIndex = 15;
@@ -132,7 +132,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(225, 225);
             this.pictureBox1.TabIndex = 14;
@@ -143,7 +143,7 @@
             this.dgv_allMemberList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
             this.dgv_allMemberList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_allMemberList.Location = new System.Drawing.Point(662, 160);
-            this.dgv_allMemberList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_allMemberList.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_allMemberList.Name = "dgv_allMemberList";
             this.dgv_allMemberList.RowHeadersWidth = 62;
             this.dgv_allMemberList.RowTemplate.Height = 24;
@@ -167,7 +167,7 @@
             this.txt_phone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
             this.txt_phone.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txt_phone.Location = new System.Drawing.Point(182, 436);
-            this.txt_phone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_phone.Margin = new System.Windows.Forms.Padding(4);
             this.txt_phone.MaxLength = 10;
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(448, 71);
@@ -178,7 +178,7 @@
             this.txt_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
             this.txt_name.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txt_name.Location = new System.Drawing.Point(182, 344);
-            this.txt_name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_name.Margin = new System.Windows.Forms.Padding(4);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(448, 71);
             this.txt_name.TabIndex = 28;
@@ -188,7 +188,7 @@
             this.dtp_birthday.CalendarFont = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dtp_birthday.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.dtp_birthday.Location = new System.Drawing.Point(180, 530);
-            this.dtp_birthday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_birthday.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_birthday.Name = "dtp_birthday";
             this.dtp_birthday.Size = new System.Drawing.Size(450, 71);
             this.dtp_birthday.TabIndex = 33;
@@ -198,7 +198,7 @@
             this.txt_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
             this.txt_email.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txt_email.Location = new System.Drawing.Point(182, 810);
-            this.txt_email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_email.Margin = new System.Windows.Forms.Padding(4);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(448, 71);
             this.txt_email.TabIndex = 31;
@@ -208,7 +208,7 @@
             this.txt_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
             this.txt_address.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txt_address.Location = new System.Drawing.Point(182, 716);
-            this.txt_address.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_address.Margin = new System.Windows.Forms.Padding(4);
             this.txt_address.Name = "txt_address";
             this.txt_address.Size = new System.Drawing.Size(448, 71);
             this.txt_address.TabIndex = 32;
@@ -229,7 +229,7 @@
             this.txt_point.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
             this.txt_point.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txt_point.Location = new System.Drawing.Point(182, 622);
-            this.txt_point.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_point.Margin = new System.Windows.Forms.Padding(4);
             this.txt_point.Name = "txt_point";
             this.txt_point.Size = new System.Drawing.Size(448, 71);
             this.txt_point.TabIndex = 32;
@@ -239,7 +239,7 @@
             this.btn_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_search.BackgroundImage")));
             this.btn_search.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn_search.Location = new System.Drawing.Point(1199, 1006);
-            this.btn_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(4);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(300, 75);
             this.btn_search.TabIndex = 15;
@@ -252,7 +252,7 @@
             this.btn_save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_save.BackgroundImage")));
             this.btn_save.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn_save.Location = new System.Drawing.Point(332, 889);
-            this.btn_save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(300, 75);
             this.btn_save.TabIndex = 15;
@@ -265,24 +265,13 @@
             this.btn_delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_delete.BackgroundImage")));
             this.btn_delete.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn_delete.Location = new System.Drawing.Point(1208, 788);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(300, 75);
             this.btn_delete.TabIndex = 15;
             this.btn_delete.Text = "刪除資料";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
-            // lb_count
-            // 
-            this.lb_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
-            this.lb_count.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_count.Location = new System.Drawing.Point(258, 160);
-            this.lb_count.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lb_count.Name = "lb_count";
-            this.lb_count.Size = new System.Drawing.Size(394, 68);
-            this.lb_count.TabIndex = 17;
-            this.lb_count.Text = "筆數統計/計數";
             // 
             // lable134
             // 
@@ -300,7 +289,7 @@
             this.btn_clear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_clear.BackgroundImage")));
             this.btn_clear.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn_clear.Location = new System.Drawing.Point(1199, 923);
-            this.btn_clear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_clear.Margin = new System.Windows.Forms.Padding(4);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(300, 75);
             this.btn_clear.TabIndex = 15;
@@ -323,7 +312,7 @@
             this.btn_reload.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_reload.BackgroundImage")));
             this.btn_reload.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn_reload.Location = new System.Drawing.Point(900, 705);
-            this.btn_reload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_reload.Margin = new System.Windows.Forms.Padding(4);
             this.btn_reload.Name = "btn_reload";
             this.btn_reload.Size = new System.Drawing.Size(300, 75);
             this.btn_reload.TabIndex = 15;
@@ -337,7 +326,7 @@
             this.cbox_search.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.cbox_search.FormattingEnabled = true;
             this.cbox_search.Location = new System.Drawing.Point(982, 1006);
-            this.cbox_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbox_search.Margin = new System.Windows.Forms.Padding(4);
             this.cbox_search.Name = "cbox_search";
             this.cbox_search.Size = new System.Drawing.Size(209, 69);
             this.cbox_search.TabIndex = 34;
@@ -347,7 +336,7 @@
             this.txt_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
             this.txt_search.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.txt_search.Location = new System.Drawing.Point(50, 998);
-            this.txt_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_search.Margin = new System.Windows.Forms.Padding(4);
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(924, 71);
             this.txt_search.TabIndex = 35;
@@ -375,7 +364,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lb_ID);
-            this.Controls.Add(this.lb_count);
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_save);
@@ -384,7 +372,7 @@
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.btn_signup);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MemberInfo";
             this.Text = "MemberInfo";
             this.Load += new System.EventHandler(this.MemberInfo_Load);
@@ -415,7 +403,6 @@
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.Label lb_count;
         private System.Windows.Forms.Label lable134;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Label lb_ID;

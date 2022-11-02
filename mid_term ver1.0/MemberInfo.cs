@@ -209,5 +209,10 @@ namespace mid_term_ver1._0
             allMemberList();
             clear();
         }
+
+        private void lb_title_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
