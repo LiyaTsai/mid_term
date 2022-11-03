@@ -172,8 +172,8 @@ namespace mid_term_ver1._0
             if (reader.HasRows)
             {//成功登入
                 Console.WriteLine("clerk log in");
-                MemberInfo memberInfo = new MemberInfo();
-                memberInfo.Show();
+                ClerkMaim clerkMaim = new ClerkMaim();
+                clerkMaim.ShowDialog();
                 GlobalVar.G_user_permission = 2;
                 a = 1;
             }

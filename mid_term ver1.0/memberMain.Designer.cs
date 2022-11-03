@@ -65,7 +65,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(225, 225);
             this.pictureBox1.TabIndex = 17;
@@ -92,7 +92,7 @@
             this.lb_title.Name = "lb_title";
             this.lb_title.Size = new System.Drawing.Size(1056, 117);
             this.lb_title.TabIndex = 18;
-            this.lb_title.Text = "　　　　會員資料";
+            this.lb_title.Text = "　　　　會員功能頁";
             this.lb_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // memberMain

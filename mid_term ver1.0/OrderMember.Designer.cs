@@ -32,8 +32,6 @@
             this.lb_title = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgv_order = new System.Windows.Forms.DataGridView();
-            this.lbox_order = new System.Windows.Forms.ListBox();
-            this.lb_ID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_order)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +45,7 @@
             this.lb_title.Name = "lb_title";
             this.lb_title.Size = new System.Drawing.Size(1056, 117);
             this.lb_title.TabIndex = 20;
-            this.lb_title.Text = "　　　　會員資料";
+            this.lb_title.Text = "　　　　會員訂單";
             this.lb_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -63,31 +61,13 @@
             // dgv_order
             // 
             this.dgv_order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_order.Location = new System.Drawing.Point(251, 317);
+            this.dgv_order.Location = new System.Drawing.Point(267, 272);
             this.dgv_order.Name = "dgv_order";
             this.dgv_order.RowHeadersWidth = 62;
             this.dgv_order.RowTemplate.Height = 31;
-            this.dgv_order.Size = new System.Drawing.Size(1228, 630);
+            this.dgv_order.Size = new System.Drawing.Size(1053, 630);
             this.dgv_order.TabIndex = 21;
-            // 
-            // lbox_order
-            // 
-            this.lbox_order.FormattingEnabled = true;
-            this.lbox_order.ItemHeight = 18;
-            this.lbox_order.Location = new System.Drawing.Point(12, 264);
-            this.lbox_order.Name = "lbox_order";
-            this.lbox_order.Size = new System.Drawing.Size(100, 76);
-            this.lbox_order.TabIndex = 22;
-            // 
-            // lb_ID
-            // 
-            this.lb_ID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(196)))), ((int)(((byte)(195)))));
-            this.lb_ID.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ID.Location = new System.Drawing.Point(1029, 238);
-            this.lb_ID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lb_ID.Name = "lb_ID";
-            this.lb_ID.Size = new System.Drawing.Size(450, 68);
-            this.lb_ID.TabIndex = 23;
+            this.dgv_order.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_order_CellClick);
             // 
             // OrderMember
             // 
@@ -95,8 +75,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.ClientSize = new System.Drawing.Size(1512, 1060);
-            this.Controls.Add(this.lb_ID);
-            this.Controls.Add(this.lbox_order);
             this.Controls.Add(this.dgv_order);
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.pictureBox1);
@@ -114,7 +92,5 @@
         private System.Windows.Forms.Label lb_title;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dgv_order;
-        private System.Windows.Forms.ListBox lbox_order;
-        private System.Windows.Forms.Label lb_ID;
     }
 }

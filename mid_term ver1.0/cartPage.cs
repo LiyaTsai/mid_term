@@ -337,9 +337,9 @@ namespace mid_term_ver1._0
             if(a == 1)
             {
                 DateTime dateTime = DateTime.Now;
-                string order_id = dateTime.ToString("yyyyMMddHHmmssff");
+                string order_id = dateTime.ToString("MMddHHmmss");
                 Random rndguid = new Random(Guid.NewGuid().GetHashCode());
-                order_id = order_id + rndguid.Next(1000, 9999).ToString();
+                order_id = order_id + rndguid.Next(10, 100).ToString();
                 GlobalVar.G_order_id = order_id;
 
                 puffOrder();
@@ -367,6 +367,8 @@ namespace mid_term_ver1._0
                 {
                     MessageBox.Show("訂購完成");
                     btn_RemoveAll_Click(null, null);
+                    OrderMember orderMember = new OrderMember();
+                    orderMember.Show();
                 }
                 reader.Close();
                 con.Close();

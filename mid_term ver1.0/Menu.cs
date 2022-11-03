@@ -33,11 +33,7 @@ namespace mid_term_ver1._0
             scsb.IntegratedSecurity = true;
             strMyDBConnectionString = scsb.ToString();
             int p = GlobalVar.G_user_permission;
-            if (p == 1)
-            {
-                btn_addDessert.Visible = false;
-                btn_Reload.Visible = false;
-            }
+
 
             mymomoDB();
             ListView_IMG();
@@ -130,7 +126,8 @@ namespace mid_term_ver1._0
 
         private void btn_addDessert_Click(object sender, EventArgs e)
         {//新增商品
-            
+         //先檢查帳號是否已存在
+
         }
     }
 }

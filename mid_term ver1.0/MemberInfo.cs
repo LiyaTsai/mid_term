@@ -107,8 +107,11 @@ namespace mid_term_ver1._0
         {
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "update momo_member set member_available = 0; ";
+            string strSQL = "update momo_member set member_available = 0where member_ID = @SearchID;";
             SqlCommand cmd = new SqlCommand(strSQL, con);
+            cmd.Parameters.AddWithValue("@SearchID", lb_ID.Text);
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Close();
             con.Close();
         }
 
